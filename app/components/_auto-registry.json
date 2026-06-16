@@ -1,0 +1,2035 @@
+{
+  "generatedAt": "2026-06-16T06:52:30.711Z",
+  "totalFiles": 281,
+  "totalComponents": 308,
+  "categories": [
+    {
+      "id": "root",
+      "label": "Page Sections",
+      "files": [
+        {
+          "file": "components/brand-logo.tsx",
+          "exports": [
+            "BrandLogo"
+          ]
+        },
+        {
+          "file": "components/cta-section.tsx",
+          "exports": [
+            "CtaSection"
+          ]
+        },
+        {
+          "file": "components/customer-logos.tsx",
+          "exports": [
+            "CustomerLogoMarquee"
+          ]
+        },
+        {
+          "file": "components/decorative-shapes.tsx",
+          "exports": [
+            "FloatingTriangle",
+            "FloatingCircle",
+            "FloatingSquare",
+            "FloatingDiamond",
+            "FloatingCross",
+            "FloatingDots"
+          ]
+        },
+        {
+          "file": "components/footer.tsx",
+          "exports": [
+            "Footer"
+          ]
+        },
+        {
+          "file": "components/future-section.tsx",
+          "exports": [
+            "FutureSection"
+          ]
+        },
+        {
+          "file": "components/globe-section.tsx",
+          "exports": [
+            "GlobeSection"
+          ]
+        },
+        {
+          "file": "components/hero-canvas-title.tsx",
+          "exports": [
+            "HeroCanvasTitle"
+          ]
+        },
+        {
+          "file": "components/hero-effects.tsx",
+          "exports": [
+            "HeroOrbs",
+            "BorderBeam",
+            "AnimatedBadge",
+            "FadeUp"
+          ]
+        },
+        {
+          "file": "components/hero-side-decorations.tsx",
+          "exports": [
+            "HeroSideDecorations"
+          ]
+        },
+        {
+          "file": "components/integration-expanding-rows.tsx",
+          "exports": [
+            "IntegrationExpandingRows"
+          ]
+        },
+        {
+          "file": "components/integration-grid.tsx",
+          "exports": [
+            "IntegrationGrid"
+          ]
+        },
+        {
+          "file": "components/integration-honeycomb.tsx",
+          "exports": [
+            "IntegrationHoneycomb"
+          ]
+        },
+        {
+          "file": "components/integration-logo-cloud.tsx",
+          "exports": [
+            "IntegrationLogoCloud"
+          ]
+        },
+        {
+          "file": "components/integration-marquee.tsx",
+          "exports": [
+            "IntegrationMarquee"
+          ]
+        },
+        {
+          "file": "components/integration-orbit.tsx",
+          "exports": [
+            "IntegrationSection"
+          ]
+        },
+        {
+          "file": "components/integration-pills.tsx",
+          "exports": [
+            "IntegrationPills"
+          ]
+        },
+        {
+          "file": "components/integration-radial.tsx",
+          "exports": [
+            "IntegrationRadial"
+          ]
+        },
+        {
+          "file": "components/integration-shuffle.tsx",
+          "exports": [
+            "IntegrationShuffle"
+          ]
+        },
+        {
+          "file": "components/integration-tabs.tsx",
+          "exports": [
+            "IntegrationTabs"
+          ]
+        },
+        {
+          "file": "components/integration-waterfall.tsx",
+          "exports": [
+            "IntegrationWaterfall"
+          ]
+        },
+        {
+          "file": "components/interactive-grid.tsx",
+          "exports": [
+            "InteractiveGrid"
+          ]
+        },
+        {
+          "file": "components/navbar.tsx",
+          "exports": [
+            "Navbar"
+          ]
+        },
+        {
+          "file": "components/observeops-section.tsx",
+          "exports": [
+            "ObserveOpsSection"
+          ]
+        },
+        {
+          "file": "components/patterns.tsx",
+          "exports": [
+            "DotPattern",
+            "DotPatternLg",
+            "DiagPattern",
+            "CrosshatchPattern",
+            "GridSmPattern"
+          ]
+        },
+        {
+          "file": "components/product-bento-grid.tsx",
+          "exports": [
+            "BentoCell",
+            "ProductBentoGrid"
+          ]
+        },
+        {
+          "file": "components/product-scroll-section.tsx",
+          "exports": [
+            "NetworkDashboard",
+            "ComplianceDashboard",
+            "InfraDashboard",
+            "LogDashboard",
+            "APMDashboard",
+            "RUMDashboard",
+            "IncidentDashboard",
+            "ChangeDashboard",
+            "AssetDashboard",
+            "RequestDashboard",
+            "AIDashboard",
+            "KnowledgeDashboard",
+            "ProductScrollSection",
+            "ProductScrollAccordion",
+            "ProductTextOverview"
+          ]
+        },
+        {
+          "file": "components/recognition-badge-wall.tsx",
+          "exports": [
+            "RecognitionBadgeWall"
+          ]
+        },
+        {
+          "file": "components/recognition-logo-bar.tsx",
+          "exports": [
+            "RecognitionLogoBar"
+          ]
+        },
+        {
+          "file": "components/recognition-marquee-cards.tsx",
+          "exports": [
+            "RecognitionMarqueeCards"
+          ]
+        },
+        {
+          "file": "components/recognition-spotlight.tsx",
+          "exports": [
+            "RecognitionSpotlight"
+          ]
+        },
+        {
+          "file": "components/recognition-timeline.tsx",
+          "exports": [
+            "RecognitionTimeline"
+          ]
+        },
+        {
+          "file": "components/text-reveal-section.tsx",
+          "exports": [
+            "TextRevealSection"
+          ]
+        },
+        {
+          "file": "components/theme-switcher.tsx",
+          "exports": [
+            "ThemeSwitcher"
+          ]
+        },
+        {
+          "file": "components/upcoming-modules.tsx",
+          "exports": [
+            "UpcomingModules"
+          ]
+        }
+      ],
+      "totalComponents": 62
+    },
+    {
+      "id": "blog",
+      "label": "Blog",
+      "files": [
+        {
+          "file": "components/blog/blog-author-card.tsx",
+          "exports": [
+            "BlogAuthorCard"
+          ]
+        },
+        {
+          "file": "components/blog/blog-card.tsx",
+          "exports": [
+            "BlogCard"
+          ]
+        },
+        {
+          "file": "components/blog/blog-featured-card.tsx",
+          "exports": [
+            "BlogFeaturedCard"
+          ]
+        },
+        {
+          "file": "components/blog/blog-filters.tsx",
+          "exports": [
+            "BlogFilters"
+          ]
+        },
+        {
+          "file": "components/blog/blog-hero.tsx",
+          "exports": [
+            "BlogHero"
+          ]
+        },
+        {
+          "file": "components/blog/blog-latest-hero.tsx",
+          "exports": [
+            "BlogLatestHero"
+          ]
+        },
+        {
+          "file": "components/blog/blog-list-item.tsx",
+          "exports": [
+            "BlogListItem"
+          ]
+        },
+        {
+          "file": "components/blog/blog-newsletter.tsx",
+          "exports": [
+            "BlogNewsletter"
+          ]
+        },
+        {
+          "file": "components/blog/blog-pagination.tsx",
+          "exports": [
+            "BlogPagination"
+          ]
+        },
+        {
+          "file": "components/blog/blog-related.tsx",
+          "exports": [
+            "BlogRelated"
+          ]
+        },
+        {
+          "file": "components/blog/blog-share.tsx",
+          "exports": [
+            "BlogShare"
+          ]
+        },
+        {
+          "file": "components/blog/blog-thumbnail.tsx",
+          "exports": [
+            "BlogThumbnail"
+          ]
+        },
+        {
+          "file": "components/blog/blog-toc.tsx",
+          "exports": [
+            "BlogToc"
+          ]
+        },
+        {
+          "file": "components/blog/blog-trending.tsx",
+          "exports": [
+            "BlogTrending"
+          ]
+        }
+      ],
+      "totalComponents": 14
+    },
+    {
+      "id": "blog-images",
+      "label": "Blog images",
+      "files": [
+        {
+          "file": "components/blog-images/featured-image-svg.tsx",
+          "exports": [
+            "FeaturedImageSVG"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "brand-guidelines",
+      "label": "Brand guidelines",
+      "files": [
+        {
+          "file": "components/brand-guidelines/brand-guidelines-content.tsx",
+          "exports": [
+            "BrandGuidelinesContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "brochures",
+      "label": "Brochures",
+      "files": [
+        {
+          "file": "components/brochures/br-grid.tsx",
+          "exports": [
+            "BrGrid"
+          ]
+        },
+        {
+          "file": "components/brochures/br-hero.tsx",
+          "exports": [
+            "BrHero"
+          ]
+        }
+      ],
+      "totalComponents": 2
+    },
+    {
+      "id": "careers",
+      "label": "Careers",
+      "files": [
+        {
+          "file": "components/careers/careers-celebration.tsx",
+          "exports": [
+            "CareersCelebration"
+          ]
+        },
+        {
+          "file": "components/careers/careers-cta.tsx",
+          "exports": [
+            "CareersCta"
+          ]
+        },
+        {
+          "file": "components/careers/careers-culture.tsx",
+          "exports": [
+            "CareersCulture"
+          ]
+        },
+        {
+          "file": "components/careers/careers-hero.tsx",
+          "exports": [
+            "CareersHero"
+          ]
+        },
+        {
+          "file": "components/careers/careers-openings.tsx",
+          "exports": [
+            "CareersOpenings"
+          ]
+        },
+        {
+          "file": "components/careers/careers-perks.tsx",
+          "exports": [
+            "CareersPerks"
+          ]
+        },
+        {
+          "file": "components/careers/careers-process.tsx",
+          "exports": [
+            "CareersProcess"
+          ]
+        },
+        {
+          "file": "components/careers/careers-why-join.tsx",
+          "exports": [
+            "CareersWhyJoin"
+          ]
+        }
+      ],
+      "totalComponents": 8
+    },
+    {
+      "id": "cm",
+      "label": "CM – Change Management",
+      "files": [
+        {
+          "file": "components/cm/cm-capabilities.tsx",
+          "exports": [
+            "CMCapabilities"
+          ]
+        },
+        {
+          "file": "components/cm/cm-cta.tsx",
+          "exports": [
+            "CMCta"
+          ]
+        },
+        {
+          "file": "components/cm/cm-faq.tsx",
+          "exports": [
+            "CMFAQ"
+          ]
+        },
+        {
+          "file": "components/cm/cm-hero.tsx",
+          "exports": [
+            "CMHero"
+          ]
+        },
+        {
+          "file": "components/cm/cm-impact-stats.tsx",
+          "exports": [
+            "CMImpactStats"
+          ]
+        },
+        {
+          "file": "components/cm/cm-use-cases.tsx",
+          "exports": [
+            "CMUseCases"
+          ]
+        },
+        {
+          "file": "components/cm/cm-what-is.tsx",
+          "exports": [
+            "CMWhatIs"
+          ]
+        },
+        {
+          "file": "components/cm/cm-why-matters.tsx",
+          "exports": [
+            "CMWhyMatters"
+          ]
+        }
+      ],
+      "totalComponents": 8
+    },
+    {
+      "id": "community",
+      "label": "Community",
+      "files": [
+        {
+          "file": "components/community/cm-cta.tsx",
+          "exports": [
+            "CmCta"
+          ]
+        },
+        {
+          "file": "components/community/cm-forums.tsx",
+          "exports": [
+            "CmForums"
+          ]
+        },
+        {
+          "file": "components/community/cm-hero.tsx",
+          "exports": [
+            "CmHero"
+          ]
+        },
+        {
+          "file": "components/community/cm-programs.tsx",
+          "exports": [
+            "CmPrograms"
+          ]
+        },
+        {
+          "file": "components/community/cm-resources.tsx",
+          "exports": [
+            "CmResources"
+          ]
+        },
+        {
+          "file": "components/community/cm-testimonials.tsx",
+          "exports": [
+            "CmTestimonials"
+          ]
+        }
+      ],
+      "totalComponents": 6
+    },
+    {
+      "id": "company",
+      "label": "Company",
+      "files": [
+        {
+          "file": "components/company/company-awards.tsx",
+          "exports": [
+            "CompanyAwards"
+          ]
+        },
+        {
+          "file": "components/company/company-case-studies.tsx",
+          "exports": [
+            "CompanyCaseStudies"
+          ]
+        },
+        {
+          "file": "components/company/company-cta.tsx",
+          "exports": [
+            "CompanyCta"
+          ]
+        },
+        {
+          "file": "components/company/company-hero.tsx",
+          "exports": [
+            "CompanyHero"
+          ]
+        },
+        {
+          "file": "components/company/company-leadership.tsx",
+          "exports": [
+            "CompanyLeadership"
+          ]
+        },
+        {
+          "file": "components/company/company-mission.tsx",
+          "exports": [
+            "CompanyMission"
+          ]
+        },
+        {
+          "file": "components/company/company-recognition.tsx",
+          "exports": [
+            "CompanyRecognition"
+          ]
+        },
+        {
+          "file": "components/company/company-security.tsx",
+          "exports": [
+            "CompanySecurity"
+          ]
+        },
+        {
+          "file": "components/company/company-values.tsx",
+          "exports": [
+            "CompanyValues"
+          ]
+        }
+      ],
+      "totalComponents": 9
+    },
+    {
+      "id": "comparison",
+      "label": "Comparison",
+      "files": [
+        {
+          "file": "components/comparison/cmp-detail-aiops.tsx",
+          "exports": [
+            "CmpDetailAiops"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-detail-alt.tsx",
+          "exports": [
+            "CmpDetailAlt"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-detail-features.tsx",
+          "exports": [
+            "CmpDetailFeatures"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-detail-hero.tsx",
+          "exports": [
+            "CmpDetailHero"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-detail-table.tsx",
+          "exports": [
+            "CmpDetailTable"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-grid.tsx",
+          "exports": [
+            "CmpGrid"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-hero.tsx",
+          "exports": [
+            "CmpHero"
+          ]
+        },
+        {
+          "file": "components/comparison/cmp-info.tsx",
+          "exports": [
+            "CmpInfo"
+          ]
+        }
+      ],
+      "totalComponents": 8
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "files": [
+        {
+          "file": "components/contact/contact-cta.tsx",
+          "exports": [
+            "ContactCta"
+          ]
+        },
+        {
+          "file": "components/contact/contact-faq.tsx",
+          "exports": [
+            "ContactFaq"
+          ]
+        },
+        {
+          "file": "components/contact/contact-form.tsx",
+          "exports": [
+            "ContactForm"
+          ]
+        },
+        {
+          "file": "components/contact/contact-hero.tsx",
+          "exports": [
+            "ContactHero"
+          ]
+        },
+        {
+          "file": "components/contact/contact-map.tsx",
+          "exports": [
+            "ContactMap"
+          ]
+        },
+        {
+          "file": "components/contact/contact-offices.tsx",
+          "exports": [
+            "ContactOffices"
+          ]
+        }
+      ],
+      "totalComponents": 6
+    },
+    {
+      "id": "corporate-presentation",
+      "label": "Corporate presentation",
+      "files": [
+        {
+          "file": "components/corporate-presentation/corporate-presentation-content.tsx",
+          "exports": [
+            "CorporatePresentationContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "files": [
+        {
+          "file": "components/documentation/doc-cta.tsx",
+          "exports": [
+            "DocCta"
+          ]
+        },
+        {
+          "file": "components/documentation/doc-hero.tsx",
+          "exports": [
+            "DocHero"
+          ]
+        },
+        {
+          "file": "components/documentation/doc-tabs.tsx",
+          "exports": [
+            "DocTabs"
+          ]
+        }
+      ],
+      "totalComponents": 3
+    },
+    {
+      "id": "downloads",
+      "label": "Downloads",
+      "files": [
+        {
+          "file": "components/downloads/dl-featured.tsx",
+          "exports": [
+            "DlFeatured"
+          ]
+        },
+        {
+          "file": "components/downloads/dl-grid.tsx",
+          "exports": [
+            "DlGrid"
+          ]
+        },
+        {
+          "file": "components/downloads/dl-hero.tsx",
+          "exports": [
+            "DlHero"
+          ]
+        },
+        {
+          "file": "components/downloads/dl-requirements.tsx",
+          "exports": [
+            "DlRequirements"
+          ]
+        }
+      ],
+      "totalComponents": 4
+    },
+    {
+      "id": "ebooks",
+      "label": "Ebooks",
+      "files": [
+        {
+          "file": "components/ebooks/eb-grid.tsx",
+          "exports": [
+            "EbGrid"
+          ]
+        },
+        {
+          "file": "components/ebooks/eb-hero.tsx",
+          "exports": [
+            "EbHero"
+          ]
+        }
+      ],
+      "totalComponents": 2
+    },
+    {
+      "id": "edm-template",
+      "label": "Edm template",
+      "files": [
+        {
+          "file": "components/edm-template/edm-template-content.tsx",
+          "exports": [
+            "EdmTemplateContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "email-signature",
+      "label": "Email signature",
+      "files": [
+        {
+          "file": "components/email-signature/email-signature-content.tsx",
+          "exports": [
+            "EmailSignatureContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "files": [
+        {
+          "file": "components/events/ev-cta.tsx",
+          "exports": [
+            "EvCta"
+          ]
+        },
+        {
+          "file": "components/events/ev-detail.tsx",
+          "exports": [
+            "EvDetail"
+          ]
+        },
+        {
+          "file": "components/events/ev-events.tsx",
+          "exports": [
+            "EvEvents"
+          ]
+        },
+        {
+          "file": "components/events/ev-hero.tsx",
+          "exports": [
+            "EvHero"
+          ]
+        },
+        {
+          "file": "components/events/ev-partners.tsx",
+          "exports": [
+            "EvPartners"
+          ]
+        },
+        {
+          "file": "components/events/ev-recap.tsx",
+          "exports": [
+            "EvRecap"
+          ]
+        },
+        {
+          "file": "components/events/event-announcement.tsx",
+          "exports": [
+            "EventAnnouncement"
+          ]
+        }
+      ],
+      "totalComponents": 7
+    },
+    {
+      "id": "features",
+      "label": "Features",
+      "files": [
+        {
+          "file": "components/features/ft-detail.tsx",
+          "exports": [
+            "FtDetail"
+          ]
+        },
+        {
+          "file": "components/features/ft-grid.tsx",
+          "exports": [
+            "FtGrid"
+          ]
+        },
+        {
+          "file": "components/features/ft-hero.tsx",
+          "exports": [
+            "FtHero"
+          ]
+        }
+      ],
+      "totalComponents": 3
+    },
+    {
+      "id": "free-trial",
+      "label": "Free trial",
+      "files": [
+        {
+          "file": "components/free-trial/ft-aiops-detail.tsx",
+          "exports": [
+            "FtAiopsDetail"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-detail-v2.tsx",
+          "exports": [
+            "FtDetailV2"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-detail-v3.tsx",
+          "exports": [
+            "FtDetailV3"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-detail-v4.tsx",
+          "exports": [
+            "FtDetailV4"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-detail-v5.tsx",
+          "exports": [
+            "FtDetailV5"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-form.tsx",
+          "exports": [
+            "FtForm"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-hero.tsx",
+          "exports": [
+            "FtHero"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-plans-v2.tsx",
+          "exports": [
+            "FtPlansV2"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-plans-v3.tsx",
+          "exports": [
+            "FtPlansV3"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-plans-v4.tsx",
+          "exports": [
+            "FtPlansV4"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-plans-v5.tsx",
+          "exports": [
+            "FtPlansV5"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-plans.tsx",
+          "exports": [
+            "FtPlans"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-serviceops-detail.tsx",
+          "exports": [
+            "FtServiceopsDetail"
+          ]
+        },
+        {
+          "file": "components/free-trial/ft-trust.tsx",
+          "exports": [
+            "FtTrust"
+          ]
+        }
+      ],
+      "totalComponents": 14
+    },
+    {
+      "id": "getting-started",
+      "label": "Getting started",
+      "files": [
+        {
+          "file": "components/getting-started/gs-cta.tsx",
+          "exports": [
+            "GsCta"
+          ]
+        },
+        {
+          "file": "components/getting-started/gs-hero.tsx",
+          "exports": [
+            "GsHero"
+          ]
+        },
+        {
+          "file": "components/getting-started/gs-paths.tsx",
+          "exports": [
+            "GsPaths"
+          ]
+        },
+        {
+          "file": "components/getting-started/gs-resources.tsx",
+          "exports": [
+            "GsResources"
+          ]
+        },
+        {
+          "file": "components/getting-started/gs-use-cases.tsx",
+          "exports": [
+            "GsUseCases"
+          ]
+        }
+      ],
+      "totalComponents": 5
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "files": [
+        {
+          "file": "components/glossary/glossary-data.ts",
+          "exports": [
+            "ALPHABET"
+          ]
+        },
+        {
+          "file": "components/glossary/glossary-detail.tsx",
+          "exports": [
+            "GlossaryDetail"
+          ]
+        },
+        {
+          "file": "components/glossary/glossary-grid.tsx",
+          "exports": [
+            "GlossaryGrid"
+          ]
+        },
+        {
+          "file": "components/glossary/glossary-hero.tsx",
+          "exports": [
+            "GlossaryHero"
+          ]
+        }
+      ],
+      "totalComponents": 4
+    },
+    {
+      "id": "him",
+      "label": "HIM – Hybrid Infrastructure Monitoring",
+      "files": [
+        {
+          "file": "components/him/him-capabilities-tabs.tsx",
+          "exports": [
+            "HIMCapabilitiesTabs"
+          ]
+        },
+        {
+          "file": "components/him/him-cta.tsx",
+          "exports": [
+            "HIMCta"
+          ]
+        },
+        {
+          "file": "components/him/him-dashboard-visuals.tsx",
+          "exports": [
+            "HIMDashboardVisuals"
+          ]
+        },
+        {
+          "file": "components/him/him-enterprise-visibility.tsx",
+          "exports": [
+            "HIMEnterpriseVisibility"
+          ]
+        },
+        {
+          "file": "components/him/him-faq.tsx",
+          "exports": [
+            "HIMFaq"
+          ]
+        },
+        {
+          "file": "components/him/him-features-grid.tsx",
+          "exports": [
+            "HIMFeaturesGrid"
+          ]
+        },
+        {
+          "file": "components/him/him-hero.tsx",
+          "exports": [
+            "HIMHero"
+          ]
+        },
+        {
+          "file": "components/him/him-impact-stats.tsx",
+          "exports": [
+            "HIMImpactStats"
+          ]
+        },
+        {
+          "file": "components/him/him-industry-solutions.tsx",
+          "exports": [
+            "HIMIndustrySolutions"
+          ]
+        },
+        {
+          "file": "components/him/him-live-stats.tsx",
+          "exports": [
+            "HIMLiveStats"
+          ]
+        },
+        {
+          "file": "components/him/him-observeops-journey.tsx",
+          "exports": [
+            "HIMObserveOpsJourney"
+          ]
+        },
+        {
+          "file": "components/him/him-testimonial.tsx",
+          "exports": [
+            "HIMTestimonial"
+          ]
+        },
+        {
+          "file": "components/him/him-why-motadata.tsx",
+          "exports": [
+            "HIMWhyMotadata"
+          ]
+        }
+      ],
+      "totalComponents": 13
+    },
+    {
+      "id": "integrations",
+      "label": "Integrations",
+      "files": [
+        {
+          "file": "components/integrations/int-categories.tsx",
+          "exports": [
+            "IntCategories"
+          ]
+        },
+        {
+          "file": "components/integrations/int-detail.tsx",
+          "exports": [
+            "IntDetail"
+          ]
+        },
+        {
+          "file": "components/integrations/int-hero.tsx",
+          "exports": [
+            "IntHero"
+          ]
+        },
+        {
+          "file": "components/integrations/int-item-detail.tsx",
+          "exports": [
+            "IntItemDetail"
+          ]
+        }
+      ],
+      "totalComponents": 4
+    },
+    {
+      "id": "legal",
+      "label": "Legal",
+      "files": [
+        {
+          "file": "components/legal/legal-detail.tsx",
+          "exports": [
+            "LegalDetail"
+          ]
+        },
+        {
+          "file": "components/legal/privacy-policy-detail.tsx",
+          "exports": [
+            "PrivacyPolicyDetail"
+          ]
+        }
+      ],
+      "totalComponents": 2
+    },
+    {
+      "id": "live-demo",
+      "label": "Live demo",
+      "files": [
+        {
+          "file": "components/live-demo/ld-demo-environment.tsx",
+          "exports": [
+            "LdDemoEnvironment"
+          ]
+        },
+        {
+          "file": "components/live-demo/ld-email-gate.tsx",
+          "exports": [
+            "LdEmailGate"
+          ]
+        },
+        {
+          "file": "components/live-demo/ld-hero.tsx",
+          "exports": [
+            "LdHero"
+          ]
+        },
+        {
+          "file": "components/live-demo/ld-page-content.tsx",
+          "exports": [
+            "LdPageContent"
+          ]
+        },
+        {
+          "file": "components/live-demo/ld-product-selector.tsx",
+          "exports": [
+            "LdProductSelector"
+          ]
+        }
+      ],
+      "totalComponents": 5
+    },
+    {
+      "id": "login",
+      "label": "Login",
+      "files": [
+        {
+          "file": "components/login/login-form.tsx",
+          "exports": [
+            "LoginForm"
+          ]
+        },
+        {
+          "file": "components/login/login-layout.tsx",
+          "exports": [
+            "LoginLayout"
+          ]
+        },
+        {
+          "file": "components/login/login-portal-selection.tsx",
+          "exports": [
+            "LoginPortalSelection"
+          ]
+        },
+        {
+          "file": "components/login/microsoft-login-page.tsx",
+          "exports": [
+            "MicrosoftLoginPage"
+          ]
+        }
+      ],
+      "totalComponents": 4
+    },
+    {
+      "id": "media-kit",
+      "label": "Media kit",
+      "files": [
+        {
+          "file": "components/media-kit/media-kit-content.tsx",
+          "exports": [
+            "MediaKitContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "observeops",
+      "label": "ObserveOps",
+      "files": [
+        {
+          "file": "components/observeops/oo-cta.tsx",
+          "exports": [
+            "OOCta"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-editions.tsx",
+          "exports": [
+            "OOEditions"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-faq.tsx",
+          "exports": [
+            "OOFaq"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-features-grid.tsx",
+          "exports": [
+            "OOFeaturesGrid"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-future.tsx",
+          "exports": [
+            "OOFuture"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-hero.tsx",
+          "exports": [
+            "OOHero"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-impact-stats.tsx",
+          "exports": [
+            "OOImpactStats"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-industry.tsx",
+          "exports": [
+            "OOIndustry"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-motastore.tsx",
+          "exports": [
+            "OOMotastore"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-precision-roles.tsx",
+          "exports": [
+            "OOPrecisionRoles"
+          ]
+        },
+        {
+          "file": "components/observeops/oo-suite.tsx",
+          "exports": [
+            "OOSuite"
+          ]
+        }
+      ],
+      "totalComponents": 11
+    },
+    {
+      "id": "observeops-brochure",
+      "label": "Observeops brochure",
+      "files": [
+        {
+          "file": "components/observeops-brochure/observeops-brochure-content.tsx",
+          "exports": [
+            "ObserveOpsBrochureContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "observeops-demo",
+      "label": "Observeops demo",
+      "files": [
+        {
+          "file": "components/observeops-demo/od-demo-environment.tsx",
+          "exports": [
+            "OdDemoEnvironment"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-guided-tour.tsx",
+          "exports": [
+            "OdGuidedTour"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-login-v2.tsx",
+          "exports": [
+            "OdLoginV2"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-login-v3.tsx",
+          "exports": [
+            "OdLoginV3"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-login-v4.tsx",
+          "exports": [
+            "OdLoginV4"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-login-v5.tsx",
+          "exports": [
+            "OdLoginV5"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-login-v6.tsx",
+          "exports": [
+            "OdLoginV6"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-login.tsx",
+          "exports": [
+            "OdLogin"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-otp-verification.tsx",
+          "exports": [
+            "OdOtpVerification"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-page-content.tsx",
+          "exports": [
+            "OdPageContent"
+          ]
+        },
+        {
+          "file": "components/observeops-demo/od-pattern-bg.tsx",
+          "exports": [
+            "OdPatternBg"
+          ]
+        }
+      ],
+      "totalComponents": 11
+    },
+    {
+      "id": "partner-locator",
+      "label": "Partner locator",
+      "files": [
+        {
+          "file": "components/partner-locator/pl-cta.tsx",
+          "exports": [
+            "PlCta"
+          ]
+        },
+        {
+          "file": "components/partner-locator/pl-hero.tsx",
+          "exports": [
+            "PlHero"
+          ]
+        },
+        {
+          "file": "components/partner-locator/pl-list.tsx",
+          "exports": [
+            "PlList"
+          ]
+        }
+      ],
+      "totalComponents": 3
+    },
+    {
+      "id": "partners",
+      "label": "Partners",
+      "files": [
+        {
+          "file": "components/partners/pt-benefits.tsx",
+          "exports": [
+            "PtBenefits"
+          ]
+        },
+        {
+          "file": "components/partners/pt-cta.tsx",
+          "exports": [
+            "PtCta"
+          ]
+        },
+        {
+          "file": "components/partners/pt-hero.tsx",
+          "exports": [
+            "PtHero"
+          ]
+        },
+        {
+          "file": "components/partners/pt-portal.tsx",
+          "exports": [
+            "PtPortal"
+          ]
+        },
+        {
+          "file": "components/partners/pt-progression.tsx",
+          "exports": [
+            "PtProgression"
+          ]
+        },
+        {
+          "file": "components/partners/pt-tiers.tsx",
+          "exports": [
+            "PtTiers"
+          ]
+        },
+        {
+          "file": "components/partners/pt-types.tsx",
+          "exports": [
+            "PtTypes"
+          ]
+        },
+        {
+          "file": "components/partners/pt-why.tsx",
+          "exports": [
+            "PtWhy"
+          ]
+        }
+      ],
+      "totalComponents": 8
+    },
+    {
+      "id": "press-releases",
+      "label": "Press releases",
+      "files": [
+        {
+          "file": "components/press-releases/pr-cta.tsx",
+          "exports": [
+            "PrCta"
+          ]
+        },
+        {
+          "file": "components/press-releases/pr-featured.tsx",
+          "exports": [
+            "PrFeatured"
+          ]
+        },
+        {
+          "file": "components/press-releases/pr-grid.tsx",
+          "exports": [
+            "PrGrid"
+          ]
+        },
+        {
+          "file": "components/press-releases/pr-hero.tsx",
+          "exports": [
+            "PrHero"
+          ]
+        },
+        {
+          "file": "components/press-releases/pr-release-notes.tsx",
+          "exports": [
+            "PrReleaseNotes"
+          ]
+        }
+      ],
+      "totalComponents": 5
+    },
+    {
+      "id": "product-page",
+      "label": "Product page",
+      "files": [
+        {
+          "file": "components/product-page/pt-capabilities-tabs.tsx",
+          "exports": [
+            "PTCapabilitiesTabs"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-cta.tsx",
+          "exports": [
+            "PTCta"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-enterprise-visibility.tsx",
+          "exports": [
+            "PTEnterpriseVisibility"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-faq.tsx",
+          "exports": [
+            "PTFaq"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-features-grid.tsx",
+          "exports": [
+            "PTFeaturesGrid"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-hero.tsx",
+          "exports": [
+            "PTHero"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-impact-stats.tsx",
+          "exports": [
+            "PTImpactStats"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-industry-solutions.tsx",
+          "exports": [
+            "PTIndustrySolutions"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-journey.tsx",
+          "exports": [
+            "PTJourney"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-page-template.tsx",
+          "exports": [
+            "ProductPageTemplate"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-testimonial.tsx",
+          "exports": [
+            "PTTestimonial"
+          ]
+        },
+        {
+          "file": "components/product-page/pt-why-motadata.tsx",
+          "exports": [
+            "PTWhyMotadata"
+          ]
+        }
+      ],
+      "totalComponents": 12
+    },
+    {
+      "id": "schedule-demo",
+      "label": "Schedule demo",
+      "files": [
+        {
+          "file": "components/schedule-demo/sd-demo-detail.tsx",
+          "exports": [
+            "SdDemoDetail"
+          ]
+        },
+        {
+          "file": "components/schedule-demo/sd-form.tsx",
+          "exports": [
+            "SdForm"
+          ]
+        },
+        {
+          "file": "components/schedule-demo/sd-hero.tsx",
+          "exports": [
+            "SdHero"
+          ]
+        },
+        {
+          "file": "components/schedule-demo/sd-plans.tsx",
+          "exports": [
+            "SdPlans"
+          ]
+        },
+        {
+          "file": "components/schedule-demo/sd-trust.tsx",
+          "exports": [
+            "SdTrust"
+          ]
+        }
+      ],
+      "totalComponents": 5
+    },
+    {
+      "id": "serviceops",
+      "label": "ServiceOps",
+      "files": [
+        {
+          "file": "components/serviceops/so-cta.tsx",
+          "exports": [
+            "SOCta"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-editions.tsx",
+          "exports": [
+            "SOEditions"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-faq.tsx",
+          "exports": [
+            "SOFaq"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-features-grid.tsx",
+          "exports": [
+            "SOFeaturesGrid"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-future.tsx",
+          "exports": [
+            "SOFuture"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-hero.tsx",
+          "exports": [
+            "SOHero"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-impact-stats.tsx",
+          "exports": [
+            "SOImpactStats"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-industry.tsx",
+          "exports": [
+            "SOIndustry"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-intellicore.tsx",
+          "exports": [
+            "SOIntellicore"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-precision-roles.tsx",
+          "exports": [
+            "SOPrecisionRoles"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-suite.tsx",
+          "exports": [
+            "SOSuite"
+          ]
+        },
+        {
+          "file": "components/serviceops/so-testimonial.tsx",
+          "exports": [
+            "SOTestimonial"
+          ]
+        }
+      ],
+      "totalComponents": 12
+    },
+    {
+      "id": "serviceops-brochure",
+      "label": "Serviceops brochure",
+      "files": [
+        {
+          "file": "components/serviceops-brochure/serviceops-brochure-content.tsx",
+          "exports": [
+            "ServiceOpsBrochureContent"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
+      "id": "serviceops-detail",
+      "label": "Serviceops detail",
+      "files": [
+        {
+          "file": "components/integrations/serviceops-detail/sd-closing-cta.tsx",
+          "exports": [
+            "SDClosingCta"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-compatibility.tsx",
+          "exports": [
+            "SDCompatibility"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-core-use-cases.tsx",
+          "exports": [
+            "SDCoreUseCases"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-enterprise-readiness.tsx",
+          "exports": [
+            "SDEnterpriseReadiness"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-hero.tsx",
+          "exports": [
+            "SDHero"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-how-it-works.tsx",
+          "exports": [
+            "SDHowItWorks"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-key-outcomes.tsx",
+          "exports": [
+            "SDKeyOutcomes"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-page-template.tsx",
+          "exports": [
+            "ServiceOpsDetailTemplate"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-persona-value.tsx",
+          "exports": [
+            "SDPersonaValue"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-related-integrations.tsx",
+          "exports": [
+            "SDRelatedIntegrations"
+          ]
+        },
+        {
+          "file": "components/integrations/serviceops-detail/sd-why-it-matters.tsx",
+          "exports": [
+            "SDWhyItMatters"
+          ]
+        }
+      ],
+      "totalComponents": 11
+    },
+    {
+      "id": "solutions",
+      "label": "Solutions",
+      "files": [
+        {
+          "file": "components/solutions/tech-hero.tsx",
+          "exports": [
+            "TechHero"
+          ]
+        },
+        {
+          "file": "components/solutions/tech-listing.tsx",
+          "exports": [
+            "TechListing"
+          ]
+        },
+        {
+          "file": "components/solutions/usecase-hero.tsx",
+          "exports": [
+            "UseCaseHero"
+          ]
+        },
+        {
+          "file": "components/solutions/usecase-listing.tsx",
+          "exports": [
+            "UseCaseListing"
+          ]
+        }
+      ],
+      "totalComponents": 4
+    },
+    {
+      "id": "success-stories",
+      "label": "Success stories",
+      "files": [
+        {
+          "file": "components/success-stories/ss-grid.tsx",
+          "exports": [
+            "SsGrid"
+          ]
+        },
+        {
+          "file": "components/success-stories/ss-hero.tsx",
+          "exports": [
+            "SsHero"
+          ]
+        },
+        {
+          "file": "components/success-stories/ss-ratings.tsx",
+          "exports": [
+            "SsRatings"
+          ]
+        }
+      ],
+      "totalComponents": 3
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "files": [
+        {
+          "file": "components/support/support-channels.tsx",
+          "exports": [
+            "SupportChannels"
+          ]
+        },
+        {
+          "file": "components/support/support-cta.tsx",
+          "exports": [
+            "SupportCta"
+          ]
+        },
+        {
+          "file": "components/support/support-faq.tsx",
+          "exports": [
+            "SupportFaq"
+          ]
+        },
+        {
+          "file": "components/support/support-hero.tsx",
+          "exports": [
+            "SupportHero"
+          ]
+        },
+        {
+          "file": "components/support/support-plans.tsx",
+          "exports": [
+            "SupportPlans"
+          ]
+        },
+        {
+          "file": "components/support/support-resources.tsx",
+          "exports": [
+            "SupportResources"
+          ]
+        }
+      ],
+      "totalComponents": 6
+    },
+    {
+      "id": "ucv",
+      "label": "Ucv",
+      "files": [
+        {
+          "file": "components/ucv/ucv-compute-intelligence.tsx",
+          "exports": [
+            "UCVComputeIntelligence"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-core-capabilities.tsx",
+          "exports": [
+            "UCVCoreCapabilities"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-cta.tsx",
+          "exports": [
+            "UCVCta"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-explore-him.tsx",
+          "exports": [
+            "UCVExploreHim"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-hero.tsx",
+          "exports": [
+            "UCVHero"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-how-it-works.tsx",
+          "exports": [
+            "UCVHowItWorks"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-key-highlights.tsx",
+          "exports": [
+            "UCVKeyHighlights"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-precision-roles.tsx",
+          "exports": [
+            "UCVPrecisionRoles"
+          ]
+        },
+        {
+          "file": "components/ucv/ucv-visibility-control.tsx",
+          "exports": [
+            "UCVVisibilityControl"
+          ]
+        }
+      ],
+      "totalComponents": 9
+    },
+    {
+      "id": "webinars",
+      "label": "Webinars",
+      "files": [
+        {
+          "file": "components/webinars/wb-cta.tsx",
+          "exports": [
+            "WbCta"
+          ]
+        },
+        {
+          "file": "components/webinars/wb-detail.tsx",
+          "exports": [
+            "WbDetail"
+          ]
+        },
+        {
+          "file": "components/webinars/wb-hero.tsx",
+          "exports": [
+            "WbHero"
+          ]
+        },
+        {
+          "file": "components/webinars/wb-list.tsx",
+          "exports": [
+            "WbList"
+          ]
+        },
+        {
+          "file": "components/webinars/wb-watch.tsx",
+          "exports": [
+            "WbWatch"
+          ]
+        }
+      ],
+      "totalComponents": 5
+    },
+    {
+      "id": "whitepapers",
+      "label": "Whitepapers",
+      "files": [
+        {
+          "file": "components/whitepapers/wp-grid.tsx",
+          "exports": [
+            "WpGrid"
+          ]
+        },
+        {
+          "file": "components/whitepapers/wp-hero.tsx",
+          "exports": [
+            "WpHero"
+          ]
+        }
+      ],
+      "totalComponents": 2
+    }
+  ]
+}

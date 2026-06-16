@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <!-- Motadata brand mark (14.9x14.9) centered in 30x30 tile -->
+  <!-- 7.55 padding each side = clean spacing when tiled -->
+  <g transform="translate(7.55, 7.55)">
+    <path fill="#fff" d="M0,10.4c0,2.5,2,4.4,4.4,4.4h0V6h0C2,6,0,8,0,10.4Z"/>
+    <path fill="#fff" d="M14.9,4.4c0-2.5-2-4.4-4.4-4.4h0v8.9h0c2.4,0,4.4-2,4.4-4.4Z"/>
+    <path fill="#fff" d="M6,10.4c0,2.5,2,4.4,4.4,4.4s4.4-2,4.4-4.4h0c0,0-8.9,0-8.9,0h0Z"/>
+    <path fill="#fff" d="M8.9,4.4C8.9,2,6.9,0,4.4,0S0,2,0,4.4h0c0,0,8.9,0,8.9,0h0Z"/>
+  </g>
+</svg>

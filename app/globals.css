@@ -1,0 +1,788 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Global Brand Color ──
+     Change this ONE value to update orange across the entire site.
+     Current: #f17463  →  HSL 7 84% 67%
+  */
+  --default-orange: 7 84% 67%;
+
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: var(--default-orange);
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 220 14% 96%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: var(--default-orange);
+  --radius: 0.625rem;
+
+  /* gradient endpoints — theme switcher updates these */
+  --gradient-from: var(--default-orange);
+  --gradient-to: 350 75% 55%;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  @apply min-h-screen bg-background text-foreground antialiased;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* =====================================================
+   TYPOGRAPHY SYSTEM — single source of truth
+   See TYPOGRAPHY.md for usage. Tokens own size/weight/
+   leading/tracking ONLY. Apply color separately via
+   text-foreground / text-muted-foreground / text-primary.
+   Change a token here → propagates across the whole site.
+   ===================================================== */
+@layer components {
+  /* ── Display — hero headlines ───────────────── */
+  .text-display-xl { @apply text-5xl font-bold tracking-tight leading-tight sm:text-6xl; }
+  .text-display-lg { @apply text-4xl font-bold tracking-tight leading-tight sm:text-5xl; }
+  .text-display-md { @apply text-3xl font-bold tracking-tight leading-tight sm:text-4xl; }
+
+  /* ── Heading — section / card titles ─────────── */
+  .text-heading-xl { @apply text-3xl font-bold tracking-tight leading-tight; }
+  .text-heading-lg { @apply text-2xl font-bold tracking-tight leading-snug; }
+  .text-heading-md { @apply text-xl font-semibold tracking-tight leading-snug; }
+  .text-heading-sm { @apply text-lg font-semibold tracking-tight leading-snug; }
+  .text-heading-xs { @apply text-base font-semibold tracking-tight leading-snug; }
+
+  /* ── Body — paragraphs ───────────────────────── */
+  .text-body-lg { @apply text-lg font-medium leading-relaxed; }
+  .text-body-md { @apply text-base font-medium leading-relaxed; }
+  .text-body-sm { @apply text-[15px] font-medium leading-relaxed; }
+  .text-body-xs { @apply text-sm font-medium leading-relaxed; }
+
+  /* ── Label — buttons, tags, dense UI ─────────── */
+  .text-label-lg { @apply text-base font-semibold leading-snug; }
+  .text-label-md { @apply text-sm font-semibold leading-snug; }
+  .text-label-sm { @apply text-xs font-semibold leading-snug; }
+
+  /* ── Label (medium) — inline labels, list values, nav links — lighter than semibold buttons ─ */
+  .text-label-md-medium { @apply text-sm font-medium leading-snug; }
+  .text-label-sm-medium { @apply text-xs font-medium leading-snug; }
+
+  /* ── Label (strong) — bold emphasis variant for step numbers, status pills, inline strong text ─ */
+  .text-label-md-strong { @apply text-sm font-bold leading-snug; }
+  .text-label-sm-strong { @apply text-xs font-bold leading-snug; }
+
+  /* ── Overline — uppercase eyebrow ────────────── */
+  .text-overline    { @apply text-xs font-semibold uppercase tracking-widest leading-snug; }
+  .text-overline-sm { @apply text-[10px] font-semibold uppercase tracking-widest leading-snug; }
+
+  /* ── Caption — fine print, metadata ──────────── */
+  .text-caption { @apply text-xs font-medium leading-normal; }
+}
+
+/* =====================================================
+   MARQUEE
+   ===================================================== */
+.marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Event top-bar ticker — GPU-accelerated for a smooth, jerk-free scroll. */
+.event-ticker-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: event-ticker-scroll var(--ticker-speed, 28s) linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.event-ticker-track:hover {
+  animation-play-state: paused;
+}
+@keyframes event-ticker-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* =====================================================
+   STAT GRADIENT — uses CSS variables now
+   ===================================================== */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  color: hsl(var(--foreground));
+}
+
+/* =====================================================
+   CTA GRADIENT — uses CSS variables now
+   ===================================================== */
+.cta-gradient {
+  background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+}
+
+/* =====================================================
+   HOVER LIFT
+   ===================================================== */
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* =====================================================
+   FEATURE CELL — uses CSS variable
+   ===================================================== */
+.feature-cell {
+  transition: background-color 0.2s ease;
+}
+.feature-cell:hover {
+  background-color: hsl(0 0% 97%);
+}
+
+/* =====================================================
+   INT PILL — uses CSS variable
+   ===================================================== */
+.int-pill {
+  transition: all 0.2s ease;
+}
+
+/* =====================================================
+   HERO GRADIENT TEXT
+   ===================================================== */
+.hero-gradient-text {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--foreground)) 0%,
+    hsl(var(--gradient-from)) 50%,
+    hsl(var(--gradient-to)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =====================================================
+   HERO AMBIENT GLOW — gentle breathing behind the title
+   ===================================================== */
+@keyframes ambient-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.hero-ambient-glow {
+  animation: ambient-glow 5s ease-in-out infinite;
+}
+
+/* =====================================================
+   FLOAT ANIMATION — for side decorative shapes
+   ===================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(3deg); }
+  66% { transform: translateY(8px) rotate(-2deg); }
+}
+
+/* =====================================================
+   HERO ORB ANIMATIONS
+   ===================================================== */
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 50px) scale(0.95); }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 30px) scale(1.05); }
+  66% { transform: translate(40px, -60px) scale(0.9); }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, 20px) scale(1.08); }
+  66% { transform: translate(-50px, -30px) scale(0.92); }
+}
+
+@keyframes beam-trace {
+  0% { top: -10%; left: -10%; }
+  25% { top: -10%; left: 100%; }
+  50% { top: 100%; left: 100%; }
+  75% { top: 100%; left: -10%; }
+  100% { top: -10%; left: -10%; }
+}
+
+/* =====================================================
+   HERO SHIMMER LINE
+   ===================================================== */
+@keyframes shimmer-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.hero-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.06) 50%,
+    transparent 100%
+  );
+  animation: shimmer-line 3s ease-in-out infinite;
+}
+
+/* =====================================================
+   SECTION DIVIDER — gradient line with center diamond
+   ===================================================== */
+.section-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--border)) 20%,
+    hsl(var(--primary) / 0.3) 50%,
+    hsl(var(--border)) 80%,
+    transparent 100%
+  );
+}
+
+/* =====================================================
+   PROSE DETAIL — blog-style content in feature detail
+   ===================================================== */
+.prose-detail p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1rem;
+}
+.prose-detail p:last-child { margin-bottom: 0; }
+
+.prose-detail h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+.prose-detail h4:first-child { margin-top: 0; }
+
+.prose-detail ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.prose-detail li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: hsl(var(--muted-foreground));
+}
+
+.prose-detail li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+}
+
+.prose-detail strong {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.section-divider::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 1px;
+}
+
+/* =====================================================
+   GLOW PULSE ANIMATION
+   ===================================================== */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* =====================================================
+   PARTICLE FLOAT
+   ===================================================== */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(10px, -20px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-15px, -40px) scale(0.9);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-20px, -20px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* =====================================================
+   GRADIENT SHIFT
+   ===================================================== */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* =====================================================
+   BORDER GLOW
+   ===================================================== */
+@keyframes border-glow {
+  0%, 100% {
+    border-color: hsl(var(--border));
+    box-shadow: 0 0 0 hsl(var(--primary) / 0);
+  }
+  50% {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+}
+
+.border-glow {
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+/* =====================================================
+   SHIMMER EFFECT
+   ===================================================== */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* =====================================================
+   SHIMMER LABEL — Notus-style gradient text animation
+   ===================================================== */
+@keyframes shimmer-label-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-label {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.5) 40%,
+    hsl(var(--primary)) 60%,
+    hsl(var(--primary) / 0.5) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-label-sweep 3s ease-in-out infinite;
+}
+
+/* =====================================================
+   ORBIT ANIMATIONS — integration radial rings
+   ===================================================== */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes orbit-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Pause all orbit animations on hover for readability */
+.orbit-container:hover .orbit-ring,
+.orbit-container:hover .orbit-ring > div {
+  animation-play-state: paused !important;
+}
+
+/* subtle scale + glow on individual items */
+.orbit-item {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.orbit-item:hover {
+  transform: scale(1.15);
+}
+
+/* =====================================================
+   MARQUEE ROW — horizontal scrolling logo rows
+   ===================================================== */
+@keyframes marquee-row {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =====================================================
+   RADIAL NETWORK — subtle float for static nodes
+   ===================================================== */
+@keyframes radial-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.radial-card {
+  animation: radial-float 4s ease-in-out infinite;
+}
+
+/* =====================================================
+   WATERFALL — vertical scrolling columns
+   ===================================================== */
+@keyframes waterfall-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-33.333%); }
+}
+
+@keyframes waterfall-down {
+  0% { transform: translateY(-33.333%); }
+  100% { transform: translateY(0); }
+}
+
+/* =====================================================
+   HORIZONTAL MARQUEE — left/right scrolling rows
+   ===================================================== */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track-left {
+  display: flex;
+  width: max-content;
+  animation: scroll-left var(--marquee-speed, 35s) linear infinite;
+}
+
+.marquee-track-right {
+  display: flex;
+  width: max-content;
+  animation: scroll-right var(--marquee-speed, 35s) linear infinite;
+}
+
+.marquee-track-left:hover,
+.marquee-track-right:hover {
+  animation-play-state: paused;
+}
+
+/* =====================================================
+   TOPOLOGY REVEAL — progressive clip-path animation
+   ===================================================== */
+@keyframes topology-reveal {
+  0% {
+    clip-path: circle(0% at 22% 49%);
+    opacity: 0;
+  }
+  15% {
+    clip-path: circle(18% at 22% 49%);
+    opacity: 1;
+  }
+  35% {
+    clip-path: circle(30% at 35% 49%);
+  }
+  55% {
+    clip-path: circle(38% at 48% 45%);
+  }
+  75% {
+    clip-path: circle(52% at 55% 45%);
+  }
+  100% {
+    clip-path: circle(80% at 50% 50%);
+  }
+}
+
+.topology-reveal {
+  animation: topology-reveal 4s ease-out forwards;
+}
+
+/* =====================================================
+   HEX STATUS GLOW — hexagons turn green one by one
+   ===================================================== */
+@keyframes hex-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hex-pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hex-status-glow {
+  opacity: 0;
+  animation: hex-appear 0.6s ease-out forwards, hex-pulse 3s ease-in-out 0.6s infinite;
+}
+
+.hex-fill {
+  fill: hsl(var(--default-orange) / 0.35);
+  transition: fill 0.3s ease;
+}
+
+.hex-status-glow:hover .hex-fill {
+  fill: hsl(var(--default-orange) / 0.7);
+}
+
+/* =====================================================
+   EVENTS SCROLLER — horizontal ticker for navbar
+   ===================================================== */
+@keyframes events-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =====================================================
+   BLOG FAQ — connected box with chevron
+   ===================================================== */
+
+/* Connected container: first details after h2 gets top border+radius,
+   all details get side borders + bottom divider,
+   last details gets bottom radius */
+details + details {
+  border-top: 1px solid hsl(var(--border) / 0.4);
+}
+
+/* Hide default marker */
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron icon via ::after */
+details summary::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='hsl(7 84%25 67%25)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Blog FAQ connected wrapper — applied via JS-injected wrapper div */
+.blog-faq-connected {
+  border: 1px solid hsl(var(--border) / 0.6);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: white;
+}
+
+.blog-faq-connected details {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.blog-faq-connected details + details {
+  border-top: 1px solid hsl(var(--border) / 0.4);
+}
+
+.blog-faq-connected details summary:hover {
+  color: hsl(var(--primary));
+}
+
+/* ── Pros & Cons v2 — minimalist SaaS ── */
+.pc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 28px 0;
+}
+.pc-card {
+  border-radius: 12px;
+  padding: 20px;
+}
+.pc-card--pro {
+  background: hsl(var(--primary) / 0.04);
+  border: 1px solid hsl(var(--primary) / 0.12);
+}
+.pc-card--con {
+  background: hsl(220 14% 96% / 0.7);
+  border: 1px solid hsl(var(--border));
+}
+.pc-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pc-card--pro .pc-label {
+  color: hsl(var(--primary));
+}
+.pc-card--con .pc-label {
+  color: hsl(220 9% 46%);
+}
+.pc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.pc-card--pro .pc-dot {
+  background: hsl(var(--primary));
+}
+.pc-card--con .pc-dot {
+  background: hsl(220 9% 46% / 0.4);
+}
+.pc-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.pc-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 13px;
+  line-height: 1.65;
+  list-style: none !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+}
+.pc-card--pro .pc-list li {
+  color: hsl(222 47% 11%);
+}
+.pc-card--con .pc-list li {
+  color: hsl(220 9% 46%);
+}
+.pc-list li::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.pc-card--pro .pc-list li::before {
+  background: hsl(var(--primary));
+}
+.pc-card--con .pc-list li::before {
+  background: hsl(220 9% 46% / 0.35);
+}
