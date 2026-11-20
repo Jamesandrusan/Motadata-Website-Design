@@ -4,6 +4,14 @@ import { ArrowRight } from "lucide-react";
 
 const comparisons = [
   {
+    id: "servicenow",
+    slug: "motadata-vs-servicenow",
+    tag: "ITSM Platforms",
+    title: "Motadata vs ServiceNow",
+    description:
+      "How to choose between Motadata ServiceOps and ServiceNow: module packaging, asset and patch management, AI, deployment, and total cost of ownership, with an honest verdict on each.",
+  },
+  {
     id: "manageengine",
     slug: "motadata-vs-manageengine",
     tag: "Enterprise Tools",

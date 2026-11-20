@@ -1,20 +1,32 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Search, Download, X, CheckCircle, FileText, ChevronDown } from "lucide-react";
+import { Search, Download, X, CheckCircle, FileText, ChevronDown, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 /* ── Data ── */
 
 const industries = [
   "All Industries", "Technology", "Retail", "Telecom",
-  "Enterprise Services", "Travel & Hospitality",
+  "Manufacturing", "Enterprise Services", "Travel & Hospitality",
 ];
 
 const PRIMARY_COUNT = 3;
 
 const allCustomers = [
+  {
+    id: "nuvoco",
+    name: "Nuvoco Vistas",
+    logo: "/logos/success-stories/nuvoco.png",
+    industry: "Manufacturing",
+    invertDark: false,
+    /* href → this card opens a full case study web page instead of the download form */
+    href: "/resources/success-stories/nuvoco",
+    tag: "ObserveOps + ServiceOps",
+    quote: "One platform replaced a patchwork of tools, unifying infrastructure monitoring and IT service management across cement, concrete, and building-materials operations.",
+  },
   {
     id: "passionfroot",
     name: "Passionfroot",
@@ -403,37 +415,69 @@ export function SsGrid() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((c) => (
-            <div
-              key={c.id}
-              className="group/card flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-colors hover:border-primary/40"
-            >
-              <div className="flex flex-1 flex-col p-8">
-                {/* Logo */}
-                <div className="mb-5 flex h-10 items-center">
-                  <Image
-                    src={c.logo}
-                    alt={c.name}
-                    width={200}
-                    height={48}
-                    className="h-9 w-auto max-w-[160px] object-contain object-left brightness-0 dark:invert"
-                  />
+          {visible.map((c) => {
+            const inner = (
+              <>
+                <div className="flex flex-1 flex-col p-8">
+                  {/* Logo */}
+                  <div className="mb-5 flex h-10 items-center">
+                    <Image
+                      src={c.logo}
+                      alt={c.name}
+                      width={200}
+                      height={48}
+                      className="h-9 w-auto max-w-[160px] object-contain object-left brightness-0 dark:invert"
+                    />
+                  </div>
+                  {/* Industry tag + optional product tag */}
+                  <div className="mb-3 flex flex-wrap items-center gap-2">
+                    <span className="text-caption text-primary">{c.industry}</span>
+                    {"tag" in c && c.tag && (
+                      <span className="rounded-full border border-primary/20 bg-primary/5 px-2 py-0.5 text-[11px] font-medium text-primary">
+                        {c.tag}
+                      </span>
+                    )}
+                  </div>
+                  {/* Quote */}
+                  <p className="flex-1 text-sm leading-relaxed text-foreground">&ldquo;{c.quote}&rdquo;</p>
                 </div>
-                {/* Industry tag */}
-                <span className="mb-3 text-caption text-primary">{c.industry}</span>
-                {/* Quote */}
-                <p className="flex-1 text-sm leading-relaxed text-foreground">&ldquo;{c.quote}&rdquo;</p>
-              </div>
-              {/* CTA */}
-              <button
-                onClick={() => setSelected(c)}
-                className="flex w-full items-center justify-between px-6 border-t border-primary/20 py-3 text-label-md text-primary transition-opacity duration-200 opacity-0 group-hover/card:opacity-100"
+              </>
+            );
+
+            /* href entries open a full case study web page (no download form) */
+            if ("href" in c && c.href) {
+              return (
+                <Link
+                  key={c.id}
+                  href={c.href}
+                  className="group/card flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-colors hover:border-primary/40"
+                >
+                  {inner}
+                  <span className="flex w-full items-center justify-between px-6 border-t border-primary/20 py-3 text-label-md text-primary transition-opacity duration-200 opacity-0 group-hover/card:opacity-100">
+                    Read Case Study
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/card:translate-x-0.5" />
+                  </span>
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={c.id}
+                className="group/card flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-colors hover:border-primary/40"
               >
-                Download Success Story
-                <Download className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          ))}
+                {inner}
+                {/* CTA */}
+                <button
+                  onClick={() => setSelected(c)}
+                  className="flex w-full items-center justify-between px-6 border-t border-primary/20 py-3 text-label-md text-primary transition-opacity duration-200 opacity-0 group-hover/card:opacity-100"
+                >
+                  Download Success Story
+                  <Download className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            );
+          })}
         </div>
 
         {/* Load more */}

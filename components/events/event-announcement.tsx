@@ -485,7 +485,7 @@ const BAR_BTN_GHOST =
 
 /* Publish the bar's height as a CSS var so the navbar (and the in-flow spacer)
    offset by it — pushing the page down instead of overlapping. */
-function useBarHeightVar(ref: React.RefObject<HTMLDivElement>) {
+function useBarHeightVar(ref: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -560,6 +560,26 @@ function BarCtas({ event, href }: { event: FeaturedEvent; href: string }) {
       <Link href={href} className={BAR_BTN_GHOST}>
         View Details
       </Link>
+      {/* Mobile: compact tap target so the bar stays actionable on small screens */}
+      {external ? (
+        <a
+          href={registerHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Register now"
+          className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-foreground transition-opacity hover:opacity-90 sm:hidden"
+        >
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      ) : (
+        <Link
+          href={registerHref}
+          aria-label="View details"
+          className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-foreground transition-opacity hover:opacity-90 sm:hidden"
+        >
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      )}
     </>
   );
 }
@@ -581,10 +601,10 @@ function BarInline({ events, onClose }: { events: FeaturedEvent[]; onClose: () =
   const title = event.shortTitle ?? event.title;
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="mx-auto flex h-12 w-full max-w-7xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
+      <div className="mx-auto flex min-h-[3rem] w-full max-w-7xl items-center gap-2 px-6 py-2 sm:h-12 sm:gap-3 sm:py-0">
         <span className="flex h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-white" />
         <BarRotate slug={event.slug}>
-          <Link href={href} className="block min-w-0 truncate text-label-md underline-offset-2 hover:underline">
+          <Link href={href} className="block min-w-0 break-words text-label-md underline-offset-2 hover:underline sm:truncate">
             <span className="font-semibold">Upcoming:</span> {title} — {event.locationDetail ?? event.location} · {event.date}
           </Link>
         </BarRotate>
@@ -611,13 +631,13 @@ function BarCentered({ events, onClose }: { events: FeaturedEvent[]; onClose: ()
   const external = Boolean(event.registerUrl);
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="relative mx-auto flex h-12 w-full max-w-7xl items-center justify-center px-11 sm:px-14">
+      <div className="relative mx-auto flex min-h-[3rem] w-full max-w-7xl items-center justify-center px-10 py-2 sm:h-12 sm:px-14 sm:py-0">
         {count > 1 && (
           <div className="absolute left-4 hidden sm:flex">
             <CarouselDots count={count} index={index} setIndex={setIndex} light />
           </div>
         )}
-        <div className="relative overflow-hidden">
+        <div className="relative min-w-0 max-w-full overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={event.slug}
@@ -625,9 +645,9 @@ function BarCentered({ events, onClose }: { events: FeaturedEvent[]; onClose: ()
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-wrap items-center justify-center gap-x-2 text-label-md"
+              className="flex min-w-0 flex-wrap items-center justify-center gap-x-2 text-label-md"
             >
-              <Link href={href} className="truncate underline-offset-2 hover:underline">
+              <Link href={href} className="break-words text-center underline-offset-2 hover:underline sm:truncate">
                 <span className="font-semibold">{title}</span>
                 <span className="text-primary-foreground/80"> · {event.locationDetail ?? event.location} · {event.date}</span>
               </Link>
@@ -643,7 +663,7 @@ function BarCentered({ events, onClose }: { events: FeaturedEvent[]; onClose: ()
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="absolute right-2">
+        <div className="absolute right-2 top-1/2 -translate-y-1/2">
           <BarClose onClose={onClose} />
         </div>
       </div>
@@ -662,42 +682,55 @@ function BarCenteredBadge({ events, onClose }: { events: FeaturedEvent[]; onClos
   const external = Boolean(event.registerUrl);
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="relative mx-auto flex h-12 w-full max-w-7xl items-center justify-center px-11 sm:px-14">
-        {count > 1 && (
-          <div className="absolute left-4 hidden sm:flex">
-            <CarouselDots count={count} index={index} setIndex={setIndex} light />
-          </div>
-        )}
-        <div className="relative overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={event.slug}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="flex flex-wrap items-center justify-center gap-x-2.5 text-label-md"
-            >
+      <div className="mx-auto flex min-h-[3rem] w-full max-w-7xl items-center gap-3 px-6 py-2.5 sm:h-12 sm:py-0">
+        {/* TEXT — left 3/5 on mobile, flexible on desktop */}
+        <div className="min-w-0 basis-3/5 sm:flex-1 sm:basis-auto">
+          <BarRotate slug={event.slug}>
+            <div className="flex min-w-0 flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-2.5">
+              {/* Event label */}
               <span className="shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-primary-foreground ring-1 ring-inset ring-white/20">
                 {event.type}
               </span>
-              <Link href={href} className="truncate underline-offset-2 hover:underline">
-                <span className="font-semibold">{title}</span>
-                <span className="text-primary-foreground/80"> · {event.locationDetail ?? event.location} · {event.date}</span>
+              {/* Event name (row) + subline (new row) */}
+              <Link href={href} className="min-w-0 break-words text-left underline-offset-2 hover:underline sm:truncate">
+                <span className="block text-xs font-semibold leading-snug sm:inline sm:text-sm">{title}</span>
+                <span className="block text-[11px] leading-snug text-primary-foreground/80 sm:inline sm:text-sm sm:font-semibold">
+                  <span className="hidden sm:inline"> · </span>
+                  {event.locationDetail ?? event.location} · {event.date}
+                </span>
               </Link>
+              {/* CTA — desktop inline link */}
               {external ? (
-                <a href={registerHref} target="_blank" rel="noopener noreferrer" className="hidden font-medium underline underline-offset-2 hover:opacity-80 sm:ml-3 sm:inline">
+                <a href={registerHref} target="_blank" rel="noopener noreferrer" className="hidden shrink-0 font-medium underline underline-offset-2 hover:opacity-80 sm:ml-1 sm:inline">
                   Register Now
                 </a>
               ) : (
-                <Link href={registerHref} className="hidden font-medium underline underline-offset-2 hover:opacity-80 sm:ml-3 sm:inline">
+                <Link href={registerHref} className="hidden shrink-0 font-medium underline underline-offset-2 hover:opacity-80 sm:ml-1 sm:inline">
                   Register Now
                 </Link>
               )}
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          </BarRotate>
         </div>
-        <div className="absolute right-2">
+        {/* RIGHT — 2/5 on mobile: button right-aligned; desktop: dots + close */}
+        <div className="flex shrink-0 basis-2/5 items-center justify-end gap-2 sm:basis-auto">
+          {/* CTA — mobile button */}
+          {external ? (
+            <a href={registerHref} target="_blank" rel="noopener noreferrer" className="inline-flex h-7 shrink-0 items-center gap-1.5 rounded-lg bg-white px-2.5 text-[11.5px] font-medium text-foreground transition-opacity hover:opacity-90 sm:hidden">
+              Register Now
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          ) : (
+            <Link href={registerHref} className="inline-flex h-7 shrink-0 items-center gap-1.5 rounded-lg bg-white px-2.5 text-[11.5px] font-medium text-foreground transition-opacity hover:opacity-90 sm:hidden">
+              View Details
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          )}
+          {count > 1 && (
+            <div className="hidden shrink-0 md:flex">
+              <CarouselDots count={count} index={index} setIndex={setIndex} light />
+            </div>
+          )}
           <BarClose onClose={onClose} />
         </div>
       </div>
@@ -714,12 +747,12 @@ function BarBadge({ events, onClose }: { events: FeaturedEvent[]; onClose: () =>
   const title = event.shortTitle ?? event.title;
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="mx-auto flex h-12 w-full max-w-7xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
+      <div className="mx-auto flex min-h-[3rem] w-full max-w-7xl items-center gap-2 px-6 py-2 sm:h-12 sm:gap-3 sm:py-0">
         <span className="hidden shrink-0 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-wider sm:inline-flex">
           Upcoming Event
         </span>
         <BarRotate slug={event.slug}>
-          <Link href={href} className="block min-w-0 truncate text-label-md underline-offset-2 hover:underline">
+          <Link href={href} className="block min-w-0 break-words text-label-md underline-offset-2 hover:underline sm:truncate">
             <span className="font-semibold">{title}</span>
             <span className="text-primary-foreground/80"> — {event.locationDetail ?? event.location} · {event.date}</span>
           </Link>
@@ -760,7 +793,7 @@ function BarTicker({ events, onClose }: { events: FeaturedEvent[]; onClose: () =
   const loop = [...events, ...events];
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="mx-auto flex h-11 w-full max-w-7xl items-center gap-3 px-4 sm:px-6">
+      <div className="mx-auto flex h-11 w-full max-w-7xl items-center gap-2 px-6 sm:gap-3">
         <span className="hidden shrink-0 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-wider sm:inline-flex">
           Upcoming
         </span>
@@ -799,14 +832,14 @@ function BarChip({ events, onClose }: { events: FeaturedEvent[]; onClose: () => 
   const title = event.shortTitle ?? event.title;
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="mx-auto flex h-12 w-full max-w-7xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
+      <div className="mx-auto flex min-h-[3rem] w-full max-w-7xl items-center gap-2 px-6 py-2 sm:h-12 sm:gap-3 sm:py-0">
         <BarRotate slug={event.slug}>
           <Link href={href} className="flex min-w-0 items-center gap-2.5 underline-offset-2">
             <span className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/15 px-2 py-1 text-[11px] font-medium">
               <Calendar className="h-3 w-3" />
               {event.date}
             </span>
-            <span className="min-w-0 truncate text-label-md hover:underline">
+            <span className="min-w-0 break-words text-label-md hover:underline sm:truncate">
               <span className="font-semibold">{title}</span>
               <span className="text-primary-foreground/80"> — {event.locationDetail ?? event.location}</span>
             </span>
@@ -833,13 +866,13 @@ function BarTyped({ events, onClose }: { events: FeaturedEvent[]; onClose: () =>
   const title = event.shortTitle ?? event.title;
   return (
     <BarShell ariaLabel="Upcoming events">
-      <div className="mx-auto flex h-12 w-full max-w-7xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
+      <div className="mx-auto flex min-h-[3rem] w-full max-w-7xl items-center gap-2 px-6 py-2 sm:h-12 sm:gap-3 sm:py-0">
         <BarRotate slug={event.slug}>
           <div className="flex min-w-0 items-center gap-2.5">
             <span className="shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-primary-foreground ring-1 ring-inset ring-white/20">
               {event.type}
             </span>
-            <Link href={href} className="min-w-0 truncate text-label-md font-medium underline-offset-2 hover:underline">
+            <Link href={href} className="min-w-0 break-words text-label-md font-medium underline-offset-2 hover:underline sm:truncate">
               {title}
             </Link>
           </div>
@@ -851,6 +884,14 @@ function BarTyped({ events, onClose }: { events: FeaturedEvent[]; onClose: () =>
         )}
         <Link href={href} className="hidden shrink-0 items-center gap-1 text-[12.5px] font-medium underline-offset-2 hover:underline sm:inline-flex">
           Read more
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+        {/* Mobile: compact tap target */}
+        <Link
+          href={href}
+          aria-label="Read more"
+          className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/15 text-primary-foreground transition-colors hover:bg-white/25 sm:hidden"
+        >
           <ArrowRight className="h-3.5 w-3.5" />
         </Link>
         <BarClose onClose={onClose} />
@@ -938,7 +979,8 @@ export function EventAnnouncement() {
   const [variant, setVariant] = useState<Variant>("bar");
   const [popupLayout, setPopupLayout] = useState<PopupLayout>("classic");
   const [barLayout, setBarLayout] = useState<BarLayout>("ticker");
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(false);
 
   if (!events.length) return null;
 
@@ -953,8 +995,39 @@ export function EventAnnouncement() {
         <div aria-hidden style={{ height: "var(--event-bar-h, 0px)" }} />
       )}
 
+      {/* Announcement chip — small, top-right, opens the announcement */}
+      {!visible && (
+        <button
+          type="button"
+          onClick={() => setVisible(true)}
+          aria-label="Show announcement"
+          className="fixed right-3 top-[calc(var(--top-banner-visible,0px)+var(--announce-strip-h,0px)+4rem)] z-[90] inline-flex h-6 items-center gap-1.5 rounded-full border border-border/60 bg-card/90 px-2 text-[10px] font-medium text-muted-foreground shadow-sm backdrop-blur-sm transition-colors hover:border-primary/40 hover:text-foreground"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+          </span>
+          News
+        </button>
+      )}
+
+      {/* Nav chip — small, bottom-left, toggles the style switcher panels */}
+      <button
+        type="button"
+        onClick={() => setPanelOpen((o) => !o)}
+        aria-label="Toggle announcement style switcher"
+        className={`fixed bottom-3 left-3 z-[141] inline-flex h-6 items-center rounded-full border px-2 text-[10px] font-medium shadow-sm backdrop-blur-sm transition-colors ${
+          panelOpen
+            ? "border-primary/40 bg-primary text-primary-foreground"
+            : "border-border/60 bg-card/90 text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        Nav
+      </button>
+
       {/* Preview switcher — flip between styles, then pick one. (Remove once chosen.) */}
-      <div className="fixed bottom-4 left-4 z-[140] flex flex-wrap items-center gap-1 rounded-xl border border-border bg-card/95 p-1 shadow-lg backdrop-blur-sm">
+      {panelOpen && (
+      <div className="fixed bottom-4 left-20 z-[140] flex flex-wrap items-center gap-1 rounded-xl border border-border bg-card/95 p-1 shadow-lg backdrop-blur-sm">
         <span className="px-2 text-[11px] font-medium text-muted-foreground">Style:</span>
         {VARIANTS.map((v) => (
           <button
@@ -975,9 +1048,10 @@ export function EventAnnouncement() {
           Off
         </button>
       </div>
+      )}
 
       {/* Popup layout sub-switcher (carousel variants) */}
-      {variant === "popup" && (
+      {panelOpen && variant === "popup" && (
         <div className="fixed bottom-16 left-4 z-[140] flex max-w-[calc(100vw-2rem)] flex-wrap items-center gap-1 rounded-xl border border-border bg-card/95 p-1 shadow-lg backdrop-blur-sm">
           <span className="px-2 text-[11px] font-medium text-muted-foreground">Layout:</span>
           {POPUP_LAYOUTS.map((l) => (
@@ -999,7 +1073,7 @@ export function EventAnnouncement() {
       )}
 
       {/* Top Bar layout sub-switcher (5 minimalist styles) */}
-      {variant === "bar" && (
+      {panelOpen && variant === "bar" && (
         <div className="fixed bottom-16 left-4 z-[140] flex max-w-[calc(100vw-2rem)] flex-wrap items-center gap-1 rounded-xl border border-border bg-card/95 p-1 shadow-lg backdrop-blur-sm">
           <span className="px-2 text-[11px] font-medium text-muted-foreground">Bar:</span>
           {BAR_LAYOUTS.map((l) => (

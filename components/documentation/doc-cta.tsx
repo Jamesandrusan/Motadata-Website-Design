@@ -8,7 +8,10 @@ export function DocCta() {
   return (
     <section className="relative z-10">
       <div className="mx-auto w-full max-w-7xl px-6 py-24">
-        <div className="group relative overflow-hidden rounded-3xl bg-foreground px-8 py-16 text-center text-white sm:px-16 sm:py-20">
+        <div
+          className="group relative overflow-hidden rounded-3xl px-8 py-16 text-center text-white sm:px-16 sm:py-20"
+          style={{ background: "linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)))" }}
+        >
           <DottedGlowBackground
             className="opacity-0 transition-opacity duration-500 group-hover:opacity-50"
             gap={14}

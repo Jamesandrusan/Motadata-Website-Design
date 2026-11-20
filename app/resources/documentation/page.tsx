@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer";
 import { InteractiveGrid } from "@/components/interactive-grid";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { DocHero } from "@/components/documentation/doc-hero";
-import { DocTabs } from "@/components/documentation/doc-tabs";
+import { DocProducts } from "@/components/documentation/doc-products";
 import { DocCta } from "@/components/documentation/doc-cta";
 
 export default function DocumentationPage() {
@@ -15,12 +15,8 @@ export default function DocumentationPage() {
       {/* Hero */}
       <DocHero />
 
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="section-divider" />
-      </div>
-
-      {/* Documentation Tabs */}
-      <DocTabs />
+      {/* Documentation by Product */}
+      <DocProducts />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="section-divider" />

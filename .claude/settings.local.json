@@ -1,6 +1,8 @@
 {
   "permissions": {
-    "allow": [],
+    "allow": [
+      "mcp__ide__getDiagnostics"
+    ],
     "deny": [
       "Bash(rm:*)",
       "Bash(rmdir:*)",

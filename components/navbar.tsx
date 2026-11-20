@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import {
   ChevronDown,
   ChevronRight,
@@ -542,7 +543,7 @@ function ItemRow({ item, dense = false }: { item: MenuItem; dense?: boolean }) {
         <Icon className="h-4 w-4" strokeWidth={1.75} />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block text-[13.5px] font-semibold text-foreground transition-colors group-hover/i:text-primary">
+        <span className="block text-[13px] font-semibold text-foreground transition-colors group-hover/i:text-primary">
           {item.label}
         </span>
         {!dense && item.desc && (
@@ -558,7 +559,7 @@ function PlainLink({ item }: { item: MenuItem }) {
   return (
     <Link
       href={item.href || "#"}
-      className="group/i flex items-center justify-between gap-3 py-1 text-[13.5px] font-medium text-foreground/85 transition-colors hover:text-primary"
+      className="group/i flex items-center justify-between gap-3 py-1 text-[13px] font-medium text-foreground/85 transition-colors hover:text-primary"
     >
       <span>{item.label}</span>
       <ChevronRight className="h-3 w-3 shrink-0 text-primary opacity-0 transition-all group-hover/i:opacity-100 group-hover/i:translate-x-0.5" />
@@ -935,10 +936,10 @@ function MenuColumn1({
               href={item.href || "#"}
               className="group/item block rounded-lg border border-transparent px-3 py-2 transition-all hover:border-border hover:bg-muted/30"
             >
-              <p className="text-[14px] font-medium text-foreground transition-colors group-hover/item:text-primary">
+              <p className="text-[13px] font-medium text-foreground transition-colors group-hover/item:text-primary">
                 {item.label}
               </p>
-              <p className="mt-0.5 text-[13px] leading-snug text-muted-foreground/90">{item.desc}</p>
+              <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground/90">{item.desc}</p>
             </Link>
           </motion.li>
         ))}
@@ -1081,7 +1082,7 @@ function ProductHeroCard({
           <motion.li key={m.label} variants={itemVariants}>
             <Link
               href={m.href || "#"}
-              className="group/item flex items-center justify-between gap-2 rounded-md px-2.5 py-2 text-[13.5px] font-medium text-foreground/85 transition-colors hover:bg-primary/10 hover:text-primary"
+              className="group/item flex items-center justify-between gap-2 rounded-md px-2.5 py-2 text-[13px] font-medium text-foreground/85 transition-colors hover:bg-primary/10 hover:text-primary"
             >
               <span>{m.label}</span>
               <ChevronRight className="h-3 w-3 shrink-0 text-primary opacity-0 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0.5" />
@@ -1101,7 +1102,7 @@ function ProductModuleListMinimal({ items }: { items: { label: string; href?: st
         <motion.li key={item.label} variants={itemVariants}>
           <Link
             href={item.href || "#"}
-            className="group/item flex items-center justify-between gap-2 rounded-md px-3 py-2 text-[14px] font-medium text-foreground/85 transition-colors hover:bg-primary/10 hover:text-primary"
+            className="group/item flex items-center justify-between gap-2 rounded-md px-3 py-2 text-[13px] font-medium text-foreground/85 transition-colors hover:bg-primary/10 hover:text-primary"
           >
             <span>{item.label}</span>
             <ChevronRight className="h-3 w-3 shrink-0 text-primary opacity-0 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0.5" />
@@ -1121,11 +1122,11 @@ function ProductModuleList({ items }: { items: { label: string; desc: string; hr
             href={item.href || "#"}
             className="group/item block rounded-lg border border-transparent px-3 py-2 transition-all hover:border-border hover:bg-muted/30"
           >
-            <p className="text-[14px] font-medium text-foreground transition-colors group-hover/item:text-primary">
+            <p className="text-[13px] font-medium text-foreground transition-colors group-hover/item:text-primary">
               {item.label}
             </p>
             {item.desc && (
-              <p className="mt-0.5 text-[13px] leading-snug text-muted-foreground/90">{item.desc}</p>
+              <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground/90">{item.desc}</p>
             )}
           </Link>
         </motion.li>
@@ -1573,8 +1574,8 @@ function OutcomeColumn({
           <Icon className="h-3.5 w-3.5" strokeWidth={1.75} />
         </span>
         <div className="min-w-0">
-          <h3 className="text-[14px] font-bold tracking-tight text-foreground">{o.heading}</h3>
-          <p className="text-[11.5px] leading-snug text-muted-foreground">{o.desc}</p>
+          <h3 className="text-[13px] font-bold tracking-tight text-foreground">{o.heading}</h3>
+          <p className="text-[12px] leading-snug text-muted-foreground">{o.desc}</p>
         </div>
       </div>
       <motion.ul className="space-y-0" variants={containerVariants} initial="hidden" animate="visible">
@@ -1664,7 +1665,7 @@ function PersonaPanel({ personas, primaryKey, label }: { personas: Persona[]; pr
             <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">{current.sub}</p>
             <div className="mt-5 rounded-lg border border-border/40 p-4">
               <p className="text-[24px] font-bold tracking-tight text-foreground">{current.metric.value}</p>
-              <p className="mt-0.5 text-[11.5px] leading-snug text-muted-foreground">{current.metric.label}</p>
+              <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground">{current.metric.label}</p>
             </div>
           </div>
 
@@ -1758,13 +1759,13 @@ function SolutionsPanel6() {
               <div className="relative h-[72px] overflow-hidden bg-gradient-to-br from-muted/40 via-muted/20 to-transparent">
                 <Building2 className="absolute right-3 top-3 h-7 w-7 text-foreground/15" strokeWidth={1.5} />
                 <div className="absolute bottom-2.5 left-3">
-                  <p className="text-[13.5px] font-bold text-foreground transition-colors group-hover/i:text-primary">
+                  <p className="text-[13px] font-bold text-foreground transition-colors group-hover/i:text-primary">
                     {industry.label}
                   </p>
                 </div>
               </div>
               <div className="p-3">
-                <p className="line-clamp-2 text-[11.5px] leading-snug text-muted-foreground">{industry.blurb}</p>
+                <p className="line-clamp-2 text-[12px] leading-snug text-muted-foreground">{industry.blurb}</p>
                 <div className="mt-2 flex items-center gap-1.5">
                   {industry.logos.slice(0, 4).map((logo, li) => (
                     <span
@@ -1791,10 +1792,10 @@ function SolutionsPanel6() {
                 <Building2 className="h-5 w-5 text-foreground/40" strokeWidth={1.5} />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[13.5px] font-bold text-foreground transition-colors group-hover/i:text-primary">
+                <p className="text-[13px] font-bold text-foreground transition-colors group-hover/i:text-primary">
                   {industry.label}
                 </p>
-                <p className="line-clamp-1 text-[11.5px] text-muted-foreground">{industry.blurb}</p>
+                <p className="line-clamp-1 text-[12px] text-muted-foreground">{industry.blurb}</p>
               </div>
               <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/60 transition-all group-hover/i:-translate-y-0.5 group-hover/i:translate-x-0.5 group-hover/i:text-primary" />
             </Link>
@@ -1848,7 +1849,7 @@ function ResourcesPanel6() {
                 <p className="mt-1 text-[12.5px] font-bold leading-snug text-foreground transition-colors group-hover/a:text-primary">
                   {a.label}
                 </p>
-                <p className="mt-1 line-clamp-2 text-[11.5px] leading-snug text-muted-foreground">{a.teaser}</p>
+                <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-muted-foreground">{a.teaser}</p>
               </div>
             </Link>
           );
@@ -2123,7 +2124,7 @@ function PreviewShell({
                 {active.label}
               </h3>
               {(active.teaser || active.desc) && (
-                <p className="mt-2 max-w-md text-[13px] leading-relaxed text-muted-foreground">
+                <p className="mt-2 max-w-md text-[12px] leading-relaxed text-muted-foreground">
                   {active.teaser ?? active.desc}
                 </p>
               )}
@@ -2308,11 +2309,11 @@ function SpreadBand({
                       </span>
                     )}
                   </div>
-                  <h4 className="mt-1.5 text-[13.5px] font-semibold tracking-tight text-foreground transition-colors group-hover/m:text-primary">
+                  <h4 className="mt-1.5 text-[13px] font-semibold tracking-tight text-foreground transition-colors group-hover/m:text-primary">
                     {m.label}
                   </h4>
                   {m.desc && (
-                    <p className="mt-1 line-clamp-2 text-[11.5px] leading-snug text-muted-foreground">
+                    <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-muted-foreground">
                       {m.desc}
                     </p>
                   )}
@@ -2344,10 +2345,10 @@ function SpreadIndustryWall() {
             >
               {String(idx + 1).padStart(2, "0")}
             </span>
-            <h4 className="mt-1.5 text-[13.5px] font-semibold tracking-tight text-foreground transition-colors group-hover/m:text-primary">
+            <h4 className="mt-1.5 text-[13px] font-semibold tracking-tight text-foreground transition-colors group-hover/m:text-primary">
               {industry.label}
             </h4>
-            <p className="mt-1 line-clamp-2 text-[11.5px] leading-snug text-muted-foreground">{industry.blurb}</p>
+            <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-muted-foreground">{industry.blurb}</p>
             <div className="mt-2 flex items-center gap-1">
               {industry.logos.slice(0, 4).map((logo) => (
                 <span
@@ -2607,7 +2608,7 @@ function NavOptionSwitcher({
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="block text-[12.5px] font-semibold text-foreground">{o.name}</span>
-                        <span className="block text-[11px] leading-snug text-muted-foreground">{o.hint}</span>
+                        <span className="block text-[12px] leading-snug text-muted-foreground">{o.hint}</span>
                       </span>
                     </button>
                   </li>
@@ -2644,6 +2645,26 @@ export function Navbar({ forceOption }: { forceOption?: number } = {}) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+  /* Viewport offset of the header's bottom edge. Anything above the navbar
+     (e.g. the top announcement banner) pushes it down, so the mega menu and
+     backdrop anchor to the real header edge instead of a fixed 3.5rem. */
+  const [menuTop, setMenuTop] = useState(56);
+
+  useEffect(() => {
+    if (!openMenu) return;
+    const update = () => {
+      const el = headerRef.current;
+      if (el) setMenuTop(Math.max(0, el.getBoundingClientRect().bottom));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [openMenu]);
 
   useEffect(() => {
     setOpenMenu(null);
@@ -2692,7 +2713,8 @@ export function Navbar({ forceOption }: { forceOption?: number } = {}) {
   return (
     <>
       <header
-        className="sticky top-[var(--event-bar-h,0px)] z-50 bg-white/80 backdrop-blur-lg"
+        ref={headerRef}
+        className="sticky top-[calc(var(--event-bar-h,0px)+var(--announce-strip-h,0px))] z-50 bg-white/80 backdrop-blur-lg"
         style={{ boxShadow: "0 1px 0 hsl(var(--border))" }}
       >
         <div
@@ -2733,25 +2755,17 @@ export function Navbar({ forceOption }: { forceOption?: number } = {}) {
           </nav>
 
           <div className="absolute right-6 flex items-center gap-2">
+            {/* Language sits between the menu and the actions, set off by a divider */}
+            <LanguageSwitcher />
+            <span aria-hidden className="mx-1 hidden h-5 w-px bg-border sm:block" />
             <Link href="/schedule-demo">
               <Button
                 variant="ghost"
                 size="sm"
-                className="hidden text-[14px] font-medium leading-[21px] sm:inline-flex"
+                className="hidden text-[14px] font-medium leading-[21px] xl:inline-flex"
                 style={{ fontFamily: 'Inter, "Inter Fallback", system-ui, sans-serif' }}
               >
                 Schedule Demo
-              </Button>
-            </Link>
-            <Link href="/live-demo">
-              <Button
-                variant="outline"
-                size="sm"
-                className="hidden text-[14px] font-medium leading-[21px] sm:inline-flex"
-                style={{ fontFamily: 'Inter, "Inter Fallback", system-ui, sans-serif' }}
-              >
-                <Play className="h-3.5 w-3.5" />
-                Live Demo
               </Button>
             </Link>
             <Link href="/free-trial">
@@ -2774,7 +2788,8 @@ export function Navbar({ forceOption }: { forceOption?: number } = {}) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 top-14 z-[60] bg-black/[0.03]"
+            className="fixed inset-0 z-[60] bg-black/[0.03]"
+            style={{ top: menuTop }}
             onClick={() => setOpenMenu(null)}
           />
         )}
@@ -2788,8 +2803,9 @@ export function Navbar({ forceOption }: { forceOption?: number } = {}) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-[3.5rem] z-[70] mx-auto w-[calc(100%-2rem)] max-w-7xl overflow-hidden rounded-b-xl border border-t-0 border-border/60 bg-white"
+            className="fixed inset-x-0 z-[70] mx-auto w-[calc(100%-2rem)] max-w-7xl overflow-hidden rounded-b-xl border border-t-0 border-border/60 bg-white"
             style={{
+              top: menuTop,
               boxShadow: "0 12px 40px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.03)",
             }}
             onMouseEnter={clearClose}

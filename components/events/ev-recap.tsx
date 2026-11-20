@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { EventRecap, EventRecapMedia } from "@/components/events/ev-event-data";
@@ -125,6 +125,51 @@ export function EvRecap({ recap, eventTitle }: { recap: EventRecap; eventTitle: 
     [count]
   );
 
+  /* Thumbnail carousel — a fixed window of thumbnails that slides (no scrollbar).
+     As the active photo passes the window edge, a new thumbnail appears on the
+     right and the leftmost one slides out. With 6 or fewer photos, all show. */
+  const GAP = 10; // matches gap-2.5
+  const stripRef = useRef<HTMLDivElement>(null);
+  const [maxVisible, setMaxVisible] = useState(6);
+  const [containerW, setContainerW] = useState(0);
+  const [start, setStart] = useState(0);
+
+  useEffect(() => {
+    const calc = () => setMaxVisible(window.innerWidth >= 768 ? 6 : window.innerWidth >= 480 ? 4 : 3);
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, []);
+
+  useEffect(() => {
+    const el = stripRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setContainerW(el.clientWidth));
+    ro.observe(el);
+    setContainerW(el.clientWidth);
+    return () => ro.disconnect();
+  }, []);
+
+  const slots = Math.max(1, Math.min(maxVisible, count));
+
+  // Keep the active thumbnail inside the window with one thumbnail of lookahead,
+  // so selecting the last visible photo slides the strip left and reveals the next.
+  useEffect(() => {
+    const margin = 1;
+    const maxStart = Math.max(0, count - slots);
+    setStart((s) => {
+      let ns = s;
+      if (index - margin < ns) ns = index - margin;
+      if (index + margin > ns + slots - 1) ns = index + margin - slots + 1;
+      return Math.max(0, Math.min(ns, maxStart));
+    });
+  }, [index, slots, count]);
+
+  const maxStart = Math.max(0, count - slots);
+  const windowStart = Math.min(start, maxStart);
+  const itemW = containerW ? (containerW - (slots - 1) * GAP) / slots : 120;
+  const step = itemW + GAP;
+
   if (!count) return null;
   const current = media[index];
 
@@ -179,29 +224,36 @@ export function EvRecap({ recap, eventTitle }: { recap: EventRecap; eventTitle: 
             )}
           </div>
 
-          {/* Thumbnail strip */}
+          {/* Thumbnail carousel (sliding window, no scrollbar) */}
           {count > 1 && (
-            <div className="mt-4 flex gap-2.5 overflow-x-auto pb-2">
-              {media.map((m, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setIndex(i)}
-                  aria-label={`Show ${m.caption ?? `item ${i + 1}`}`}
-                  className={`relative h-16 w-24 shrink-0 overflow-hidden rounded-lg ring-2 transition-all sm:h-20 sm:w-32 ${
-                    i === index ? "ring-primary" : "opacity-55 ring-transparent hover:opacity-100"
-                  }`}
-                >
-                  <Image src={poster(m)} alt="" fill sizes="128px" className="object-cover" />
-                  {m.type === "video" && (
-                    <span className="absolute inset-0 flex items-center justify-center bg-black/20">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-primary">
-                        <Play className="ml-0.5 h-3.5 w-3.5 fill-current" />
+            <div ref={stripRef} className="mt-4 overflow-hidden">
+              <motion.div
+                className="flex gap-2.5"
+                animate={{ x: -windowStart * step }}
+                transition={{ type: "spring", stiffness: 320, damping: 38 }}
+              >
+                {media.map((m, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setIndex(i)}
+                    aria-label={`Show ${m.caption ?? `item ${i + 1}`}`}
+                    style={{ width: itemW }}
+                    className={`relative aspect-[3/2] shrink-0 overflow-hidden rounded-lg ring-2 transition-[opacity,box-shadow] ${
+                      i === index ? "ring-primary opacity-100" : "opacity-55 ring-transparent hover:opacity-100"
+                    }`}
+                  >
+                    <Image src={poster(m)} alt="" fill sizes="160px" className="object-cover" />
+                    {m.type === "video" && (
+                      <span className="absolute inset-0 flex items-center justify-center bg-black/20">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-primary">
+                          <Play className="ml-0.5 h-3.5 w-3.5 fill-current" />
+                        </span>
                       </span>
-                    </span>
-                  )}
-                </button>
-              ))}
+                    )}
+                  </button>
+                ))}
+              </motion.div>
             </div>
           )}
         </div>

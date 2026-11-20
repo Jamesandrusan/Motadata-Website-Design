@@ -45,7 +45,8 @@ import { CtaSection } from "@/components/cta-section";
 import { UpcomingModules } from "@/components/upcoming-modules";
 import { CustomerLogoMarquee } from "@/components/customer-logos";
 import { CompanyCaseStudies } from "@/components/company/company-case-studies";
-import { EventAnnouncement } from "@/components/events/event-announcement";
+import { InfinityLaunchBanner } from "@/components/infinity/infinity-launch-banner";
+import { InfinityTopBanner, InfinityStickyStrip } from "@/components/infinity/infinity-top-banner";
 
 /* ── DATA ── */
 
@@ -60,10 +61,18 @@ const stats = [
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      <InteractiveGrid />
+      {/* ── OBSERVEOPS INFINITY — TOP ANNOUNCEMENT ──
+          The banner stays put at the top (sticky, z-0). Everything below lives
+          in one opaque layer (z-1) that slides up over it on scroll, while the
+          strip + navbar stick as normal. */}
+      <InfinityTopBanner />
 
-      {/* ── EVENT ANNOUNCEMENT POPUP ── */}
-      <EventAnnouncement />
+      {/* ── PAGE LAYER ── opaque, above the banner. clip-path keeps the fixed
+          background grid from painting over the banner (and, unlike overflow,
+          doesn't break sticky). */}
+      <div className="relative z-[1] bg-background [clip-path:inset(0)]">
+      <InteractiveGrid />
+      <InfinityStickyStrip />
 
       {/* ── HEADER ── */}
       <Navbar />
@@ -151,6 +160,9 @@ export default function Home() {
           style={{ background: "linear-gradient(to top, hsl(var(--background)), transparent)" }}
         />
       </section>
+
+      {/* ── OBSERVEOPS INFINITY — LAUNCH ANNOUNCEMENT ── */}
+      <InfinityLaunchBanner />
 
       {/* ── divider ── */}
       <div className="relative z-10 mx-auto max-w-7xl"><div className="section-divider" /></div>
@@ -280,6 +292,7 @@ export default function Home() {
 
       {/* ── FOOTER ── */}
       <Footer />
+      </div>
     </main>
   );
 }

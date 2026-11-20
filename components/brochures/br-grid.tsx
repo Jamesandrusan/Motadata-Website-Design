@@ -6,19 +6,7 @@ import { X, Download, FileText, CheckCircle, ArrowRight, Search, ChevronDown } f
 import Link from "next/link";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 
-/* ── Brochure data ── */
-
-const brochures = [
-  { id: "aiops-platform",    tag: "AIOps",          title: "Motadata AIOps Platform Overview",      desc: "Complete technical overview of the unified observability platform. Features, architecture, deployment models, and integration capabilities." },
-  { id: "observeops-suite",  tag: "ObserveOps",     title: "ObserveOps Suite Brochure",             desc: "Comprehensive monitoring across infrastructure, applications, networks, and logs. Real-time visibility and intelligent correlation." },
-  { id: "serviceops-suite",  tag: "ServiceOps",     title: "ServiceOps Suite Brochure",             desc: "Modern IT service management with AI-powered automation. Service desk, incident management, change control, and asset tracking." },
-  { id: "apm",               tag: "APM",            title: "Application Performance Monitoring",    desc: "Distributed tracing, code-level diagnostics, and real-time performance metrics. Monitor microservices and monolithic applications." },
-  { id: "infrastructure",    tag: "Infrastructure", title: "Infrastructure & Cloud Monitoring",     desc: "Unified monitoring for on-premise, cloud, and hybrid environments. Support for AWS, Azure, GCP, and private data centers." },
-  { id: "network",           tag: "Network",        title: "Network Observability Platform",        desc: "Complete network monitoring with topology discovery, flow analysis, and configuration management. Multi-vendor support." },
-  { id: "logs",              tag: "Logs",           title: "Log Management & Analytics",            desc: "Centralized log aggregation, intelligent parsing, and AI-powered analytics. Real-time search and correlation at scale." },
-  { id: "ai-agent",          tag: "AI Agent",       title: "AI Agent for IT Operations",            desc: "Conversational AI for IT operations. Natural language queries, automated diagnostics, and intelligent recommendations." },
-  { id: "deployment",        tag: "Deployment",     title: "Enterprise Deployment Guide",           desc: "Architecture recommendations, sizing guidelines, and deployment best practices for enterprise environments." },
-];
+import { brochures, type Brochure } from "@/lib/brochures-data";
 
 const comparisons = [
   { title: "Motadata vs Datadog",   desc: "Feature comparison & pricing analysis" },
@@ -27,8 +15,6 @@ const comparisons = [
 ];
 
 /* ── Download Modal ── */
-
-type Brochure = typeof brochures[number];
 
 function DownloadModal({ br, onClose }: { br: Brochure; onClose: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", company: "" });
@@ -384,13 +370,23 @@ export function BrGrid() {
                   <h3 className="text-heading-sm leading-snug">{br.title}</h3>
                   <p className="mt-3 text-body-xs text-muted-foreground leading-relaxed">{br.desc}</p>
                 </div>
-                <button
-                  onClick={() => setSelected(br)}
-                  className="flex w-full items-center justify-between px-6 border-t border-primary/20 py-3 text-label-md text-primary transition-opacity duration-200 opacity-0 group-hover/card:opacity-100"
-                >
-                  Download PDF
-                  <Download className="h-3.5 w-3.5" />
-                </button>
+                {br.detail ? (
+                  <Link
+                    href={`/resources/brochures/${br.id}`}
+                    className="flex w-full items-center justify-between px-6 border-t border-primary/20 py-3 text-label-md text-primary transition-opacity duration-200 opacity-0 group-hover/card:opacity-100"
+                  >
+                    View Brochure
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => setSelected(br)}
+                    className="flex w-full items-center justify-between px-6 border-t border-primary/20 py-3 text-label-md text-primary transition-opacity duration-200 opacity-0 group-hover/card:opacity-100"
+                  >
+                    Download PDF
+                    <Download className="h-3.5 w-3.5" />
+                  </button>
+                )}
               </div>
             ))}
           </div>

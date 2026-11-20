@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-16T06:52:30.711Z",
-  "totalFiles": 281,
-  "totalComponents": 308,
+  "generatedAt": "2026-11-20T12:26:09.659Z",
+  "totalFiles": 323,
+  "totalComponents": 369,
   "categories": [
     {
       "id": "root",
@@ -34,6 +34,24 @@
             "FloatingDiamond",
             "FloatingCross",
             "FloatingDots"
+          ]
+        },
+        {
+          "file": "components/footer-accordion.tsx",
+          "exports": [
+            "FooterAccordion"
+          ]
+        },
+        {
+          "file": "components/footer-group.tsx",
+          "exports": [
+            "FooterGroup"
+          ]
+        },
+        {
+          "file": "components/footer-tabs.tsx",
+          "exports": [
+            "FooterTabs"
           ]
         },
         {
@@ -148,6 +166,12 @@
           ]
         },
         {
+          "file": "components/language-switcher.tsx",
+          "exports": [
+            "LanguageSwitcher"
+          ]
+        },
+        {
           "file": "components/navbar.tsx",
           "exports": [
             "Navbar"
@@ -245,7 +269,7 @@
           ]
         }
       ],
-      "totalComponents": 62
+      "totalComponents": 66
     },
     {
       "id": "blog",
@@ -369,6 +393,12 @@
       "label": "Brochures",
       "files": [
         {
+          "file": "components/brochures/br-detail.tsx",
+          "exports": [
+            "BrDetail"
+          ]
+        },
+        {
           "file": "components/brochures/br-grid.tsx",
           "exports": [
             "BrGrid"
@@ -381,7 +411,7 @@
           ]
         }
       ],
-      "totalComponents": 2
+      "totalComponents": 3
     },
     {
       "id": "careers",
@@ -725,13 +755,19 @@
           ]
         },
         {
+          "file": "components/documentation/doc-products.tsx",
+          "exports": [
+            "DocProducts"
+          ]
+        },
+        {
           "file": "components/documentation/doc-tabs.tsx",
           "exports": [
             "DocTabs"
           ]
         }
       ],
-      "totalComponents": 3
+      "totalComponents": 4
     },
     {
       "id": "downloads",
@@ -765,9 +801,28 @@
       "totalComponents": 4
     },
     {
+      "id": "dpdpa",
+      "label": "Dpdpa",
+      "files": [
+        {
+          "file": "components/dpdpa/dpdpa-detail.tsx",
+          "exports": [
+            "DpdpaDetail"
+          ]
+        }
+      ],
+      "totalComponents": 1
+    },
+    {
       "id": "ebooks",
       "label": "Ebooks",
       "files": [
+        {
+          "file": "components/ebooks/eb-detail.tsx",
+          "exports": [
+            "EbDetail"
+          ]
+        },
         {
           "file": "components/ebooks/eb-grid.tsx",
           "exports": [
@@ -781,7 +836,7 @@
           ]
         }
       ],
-      "totalComponents": 2
+      "totalComponents": 3
     },
     {
       "id": "edm-template",
@@ -1128,6 +1183,72 @@
       "totalComponents": 13
     },
     {
+      "id": "infinity",
+      "label": "Infinity",
+      "files": [
+        {
+          "file": "components/infinity/infinity-concise-page.tsx",
+          "exports": [
+            "InfinityConcisePage"
+          ]
+        },
+        {
+          "file": "components/infinity/infinity-launch-banner.tsx",
+          "exports": [
+            "InfinityLaunchBanner"
+          ]
+        },
+        {
+          "file": "components/infinity/infinity-launch-page-v2.tsx",
+          "exports": [
+            "InfinityHero",
+            "InfinityWhyNow",
+            "InfinityTco",
+            "InfinityPipeline",
+            "InfinityLicensing",
+            "InfinityAgenticAi",
+            "InfinityAudiences",
+            "InfinityFaq",
+            "InfinityCommitment"
+          ]
+        },
+        {
+          "file": "components/infinity/infinity-launch-page.tsx",
+          "exports": [
+            "InfinityHero",
+            "InfinityWhyNow",
+            "InfinityTco",
+            "InfinityPipeline",
+            "InfinityLicensing",
+            "InfinityAgenticAi",
+            "InfinityAudiences",
+            "InfinityFaq",
+            "InfinityCommitment"
+          ]
+        },
+        {
+          "file": "components/infinity/infinity-mark.tsx",
+          "exports": [
+            "InfinityMark"
+          ]
+        },
+        {
+          "file": "components/infinity/infinity-top-banner.tsx",
+          "exports": [
+            "InfinityTopBanner",
+            "InfinityStickyStrip"
+          ]
+        },
+        {
+          "file": "components/infinity/infinity-versioned-page.tsx",
+          "exports": [
+            "InfinityVersionedPage"
+          ]
+        }
+      ],
+      "totalComponents": 24
+    },
+    {
       "id": "integrations",
       "label": "Integrations",
       "files": [
@@ -1257,6 +1378,67 @@
         }
       ],
       "totalComponents": 1
+    },
+    {
+      "id": "nuvoco",
+      "label": "Nuvoco",
+      "files": [
+        {
+          "file": "components/success-stories/nuvoco/pattern-bullet.tsx",
+          "exports": [
+            "PatternBullet"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/story-video.tsx",
+          "exports": [
+            "StoryVideo"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-1.tsx",
+          "exports": [
+            "NuvocoVariant1"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-2.tsx",
+          "exports": [
+            "NuvocoVariant2"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-3.tsx",
+          "exports": [
+            "NuvocoVariant3"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-4.tsx",
+          "exports": [
+            "NuvocoVariant4"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-5.tsx",
+          "exports": [
+            "NuvocoVariant5"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-6.tsx",
+          "exports": [
+            "NuvocoVariant6"
+          ]
+        },
+        {
+          "file": "components/success-stories/nuvoco/variant-7.tsx",
+          "exports": [
+            "NuvocoVariant7"
+          ]
+        }
+      ],
+      "totalComponents": 9
     },
     {
       "id": "observeops",
@@ -1614,6 +1796,25 @@
       "totalComponents": 12
     },
     {
+      "id": "resources",
+      "label": "Resources",
+      "files": [
+        {
+          "file": "components/resources/download-form.tsx",
+          "exports": [
+            "DownloadForm"
+          ]
+        },
+        {
+          "file": "components/resources/resource-detail.tsx",
+          "exports": [
+            "ResourceDetail"
+          ]
+        }
+      ],
+      "totalComponents": 2
+    },
+    {
       "id": "schedule-demo",
       "label": "Schedule demo",
       "files": [
@@ -1649,6 +1850,93 @@
         }
       ],
       "totalComponents": 5
+    },
+    {
+      "id": "servicenow",
+      "label": "Servicenow",
+      "files": [
+        {
+          "file": "components/comparison/servicenow/sn-decision.tsx",
+          "exports": [
+            "SnDecision"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-deep-dive.tsx",
+          "exports": [
+            "SnDeepDive"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-faq.tsx",
+          "exports": [
+            "SnFaq"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-glance.tsx",
+          "exports": [
+            "SnGlance"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-hero.tsx",
+          "exports": [
+            "SnHero"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-module-map.tsx",
+          "exports": [
+            "SnModuleMap"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-nav.tsx",
+          "exports": [
+            "SnNav"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-overview.tsx",
+          "exports": [
+            "SnOverview"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-recognition-options.tsx",
+          "exports": [
+            "SnRecognitionOptions"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-recognition-wall.tsx",
+          "exports": [
+            "SnRecognitionWall"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-recognition.tsx",
+          "exports": [
+            "SnRecognition"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-scope.tsx",
+          "exports": [
+            "SnScope"
+          ]
+        },
+        {
+          "file": "components/comparison/servicenow/sn-shared.tsx",
+          "exports": [
+            "Reveal",
+            "SectionHeader",
+            "BrandTag"
+          ]
+        }
+      ],
+      "totalComponents": 15
     },
     {
       "id": "serviceops",
@@ -1851,6 +2139,12 @@
       "label": "Success stories",
       "files": [
         {
+          "file": "components/success-stories/nuvoco-case-study.tsx",
+          "exports": [
+            "NuvocoCaseStudy"
+          ]
+        },
+        {
           "file": "components/success-stories/ss-grid.tsx",
           "exports": [
             "SsGrid"
@@ -1869,7 +2163,7 @@
           ]
         }
       ],
-      "totalComponents": 3
+      "totalComponents": 4
     },
     {
       "id": "support",
@@ -2017,6 +2311,12 @@
       "label": "Whitepapers",
       "files": [
         {
+          "file": "components/whitepapers/wp-detail.tsx",
+          "exports": [
+            "WpDetail"
+          ]
+        },
+        {
           "file": "components/whitepapers/wp-grid.tsx",
           "exports": [
             "WpGrid"
@@ -2027,9 +2327,15 @@
           "exports": [
             "WpHero"
           ]
+        },
+        {
+          "file": "components/whitepapers/wp-unified-observability.tsx",
+          "exports": [
+            "WpUnifiedObservability"
+          ]
         }
       ],
-      "totalComponents": 2
+      "totalComponents": 4
     }
   ]
 }
